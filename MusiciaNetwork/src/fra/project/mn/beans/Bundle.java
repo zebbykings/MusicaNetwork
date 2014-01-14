@@ -63,6 +63,9 @@ public class Bundle implements Serializable{
 	public String getCUserHomeWelcomeMessage(){
 		return rb.getString("getCUserHome");
 	}
+	public String getObjectAndLaws(){
+		return rb.getString("getObjectAndLaws");
+	}
 	//Muser Messages
 	public String getMUserIndexWelcomeMessage(){
 		return rb.getString("getMUserIndex");

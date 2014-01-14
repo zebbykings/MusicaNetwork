@@ -41,7 +41,7 @@ public class CRegisterMB implements Serializable{
 		cuser.setPassword(password);
 	}
 
-	public CUserFacade getCUserFacade() {
+	private CUserFacade getCUserFacade() {
 		if(cUserFacade==null){
 			cUserFacade = new CUserFacade();
 		}

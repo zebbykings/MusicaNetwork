@@ -14,7 +14,6 @@ public class CUserFacade implements Serializable{
 	private CUserDao cuserDao = new CUserDao();
 	
 	public void createCUser(CUser cuser) {
-
 		cuserDao.beginTransaction();
 		cuserDao.save(cuser);
 		cuserDao.commitAndCloseTransaction();

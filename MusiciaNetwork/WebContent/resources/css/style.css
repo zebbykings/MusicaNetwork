@@ -8,6 +8,17 @@ body {
 	color: #333333;
 }
 
+button {
+	width: auto;
+	padding: 5px 18px;
+	line-height: 25px;
+	text-shadow: none;
+	cursor: pointer;
+	box-shadow: none;
+	background: #333333;
+	color: #fff;
+}
+
 input {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
@@ -159,11 +170,11 @@ nav ul li a:hover {
 #boxcontent article form input {
 	border: 1px solid;
 	border-radius: 5px;
-	margin: 10px 20px 10px 50px;	
+	margin: 10px 20px 10px 50px;
 }
-#boxcontent article form p{
 
-	margin: 0px 0px 0px 0px;	
+#boxcontent article form p {
+	margin: 0px 0px 0px 0px;
 	max-width: 50px
 }
 
@@ -247,6 +258,19 @@ nav ul li a:hover {
 	position: absolute;
 	right: 50%;
 	margin-right: -480px;
+}
+
+#spacer nav {
+	margin-top: 22px;
+	width: auto;
+	position: absolute;
+	left: 35%;
+	/* 	margin-left: -450px; */
+	/* 	right: auto; */
+	/* 	bottom: auto; */
+	/* 	left: 50%; */
+	/* 	top: 100px; */
+	/* 	margin-left: -184px; */
 }
 
 #spacer ul li {
@@ -697,13 +721,25 @@ transform
 
 
 
+
+
+
+
 :translateX(260px)
+
+
 
 
  
 
 
+
+
 translateY
+
+
+
+
 
 
 
@@ -712,8 +748,16 @@ translateY
 px
 
 
+
+
+
+
 )
 rotate
+
+
+
+
 
 
 
@@ -722,8 +766,16 @@ rotate
 deg
 
 
+
+
+
+
 )
 translate
+
+
+
+
 
 
 
@@ -746,13 +798,25 @@ transform
 
 
 
+
+
+
+
 :translateX(50px)
+
+
 
 
  
 
 
+
+
 translateY
+
+
+
+
 
 
 
@@ -761,8 +825,16 @@ translateY
 px
 
 
+
+
+
+
 )
 rotate
+
+
+
+
 
 
 
@@ -771,8 +843,16 @@ rotate
 deg
 
 
+
+
+
+
 )
 translate
+
+
+
+
 
 
 

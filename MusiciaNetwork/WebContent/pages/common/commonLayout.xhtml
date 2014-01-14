@@ -30,9 +30,20 @@
 </script>
 <script>
 	$(document).ready(function() {
-		$("#t").click(function() {
-			$("#1").toggle();
-			$("#2").toggle();
+		$("#s1b").click(function() {
+			$("#s1").show();
+			$("#s2").hide();
+			$("#s3").hide();
+		});
+		$("#s2b").click(function() {
+			$("#s1").hide();
+			$("#s2").show();
+			$("#s3").hide();
+		});
+		$("#s3b").click(function() {
+			$("#s1").hide();
+			$("#s2").hide();
+			$("#s3").show();
 		});
 	});
 </script>
