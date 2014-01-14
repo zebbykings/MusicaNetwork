@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13856483030160" configfile="/MusiciaNetworkG/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="pages/public/index.xhtml" x="122" y="562" id="pf13862641027660" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13862641027661 pf13866927868843 pf138686822932212" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/public/cuser_index.xhtml" x="338" y="178" id="pf13862641027662" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf138685831977411" inlinks="pf13862641027661" path="/pages/public/cuser_index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="946" id="pf13866856354170" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/public/index.xhtml" x="338" y="562" id="pf13866927868845" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13866927868843" path="/pages/public/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/protected/cuser/cusezr_home.xhtml" x="554" y="178" id="pf13867605240157" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf138685831977411" path="/pages/protected/cuser/cuser_home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/public/muser_index.xhtml" x="338" y="946" id="pf138686822932213" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf138686822932212" path="/pages/public/muser_index.xhtml"/>
+  <links id="pf13862641027661" target="pf13862641027662" source="pf13862641027660"/>
+  <links id="pf13866927868843" target="pf13866927868845" source="pf13862641027660"/>
+  <links id="pf138685831977411" target="pf13867605240157" source="pf13862641027662"/>
+  <links id="pf138686822932212" target="pf138686822932213" source="pf13862641027660"/>
+</pageflow:Pageflow>

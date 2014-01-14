@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'
+	xmlns:ui='http://java.sun.com/jsf/facelets'
+	xmlns:h='http://java.sun.com/jsf/html'
+	xmlns:f='http://java.sun.com/jsf/core'>
+
+<ui:composition template='/pages/common/commonLayout.xhtml'>
+	<ui:define name="SpacerFlag">
+		<p>
+			<h:outputText value="#{bundle.CUserHomeWelcomeMessage} "></h:outputText>
+			<h:outputText value="#{cusermb.cuser.name}"></h:outputText>
+			
+		</p>
+		
+		<ul>
+			<li>Nuovo Avviso</li>
+			<li>I Miei Avvisi</li>
+			<li>Domande Ricevute</li>
+		</ul>
+					
+		<ui:include src="/pages/public/clogin.xhtml"></ui:include>
+		</ui:define>
+	<ui:define name="BoxcontentFlag">
+		
+		<button id="t">Toggle</button>
+		
+		<div>
+			<p id="1">Secition 1 </p>
+		</div>
+		<div id="2" hidden="hidden">
+			<p>Secition 2</p>
+		</div>
+		<div hidden="hidden">
+			<p id="3">Secition 3</p>
+		</div>
+	</ui:define>
+</ui:composition>
+	
+</html>

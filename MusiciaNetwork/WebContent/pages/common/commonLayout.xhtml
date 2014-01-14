@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+
+<meta charset="UTF-8"></meta>
+<meta name="viewport"></meta>
+
+<title>MB Header</title>
+
+<link rel="stylesheet" href="/MusciaNetwork/resources/css/reset.css"
+	type="text/css" media="screen" />
+<link rel="stylesheet" href="/MusciaNetwork/resources/css/style.css"
+	type="text/css" media="screen" />
+<!-- 	<link href="/MusciaNetwork/resources/lightbox/css/lightbox.css" rel="stylesheet" /> -->
+<!-- 	<link href="http://fonts.googleapis.com/css?family=Open+Sans|Baumans" -->
+<!-- 		rel="stylesheet" type="text/css"/> -->
+
+<!-- 	<script src="/MusciaNetwork/resources/js/modernizr.js"></script> -->
+<!-- 	<script src="/MusciaNetwork/resources/js/respond.min.js"></script> -->
+<!-- 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+<!-- 	<script src="/MusciaNetwork/resources/lightbox/js/lightbox.js"></script> -->
+<!-- 	<script src="/MusciaNetwork/resources/js/prefixfree.min.js"></script> -->
+<!-- 	<script src="/MusciaNetwork/resources/js/jquery.slides.min.js"></script> -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+	
+</script>
+<script>
+	$(document).ready(function() {
+		$("#t").click(function() {
+			$("#1").toggle();
+			$("#2").toggle();
+		});
+	});
+</script>
+</head>
+<header>
+	<ui:insert name="header">
+		<ui:include src="/pages/common/commonHeader.xhtml" />
+	</ui:insert>
+	<nav>
+		<ui:insert name="nav">
+			<ui:include src="/pages/common/commonNav.xhtml" />
+		</ui:insert>
+	</nav>
+</header>
+<section id="spacer">
+	<ui:insert name="SpacerFlag"></ui:insert>
+</section>
+<section id="boxcontent">
+	<ui:insert name="BoxcontentFlag"></ui:insert>
+</section>
+<footer>
+	<ui:insert name="footer">
+		<ui:include src="/pages/common/commonFooter.xhtml" />
+	</ui:insert>
+</footer>
+
+
+</html>

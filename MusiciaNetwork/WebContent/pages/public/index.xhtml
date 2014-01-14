@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui='http://java.sun.com/jsf/facelets'
+	xmlns:h='http://java.sun.com/jsf/html'
+	xmlns:f='http://java.sun.com/jsf/core'>
+
+<ui:composition template='/pages/common/commonLayout.xhtml'>
+	<ui:define name="SpacerFlag">
+		<p>
+			<h:outputText value="#{bundle.indexWelcomeMessage}"></h:outputText>
+		</p>
+	</ui:define>
+	<ui:define name="BoxcontentFlag">
+			<ui:include src="/pages/common/commonContent.xhtml" />
+	</ui:define>
+	<ui:define name="commonRightFlag">
+		<p>
+			<h:outputText value="#{bundle.registerFormTitle}"></h:outputText>
+		</p>
+	</ui:define>
+	<ui:define name="commonLeftFlag">
+		<p>
+			<h:outputText value="#{bundle.registerFormTitle}"></h:outputText>
+		</p>
+	</ui:define>
+</ui:composition>
+
+</html>

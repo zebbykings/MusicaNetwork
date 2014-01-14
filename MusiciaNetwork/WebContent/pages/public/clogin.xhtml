@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h='http://java.sun.com/jsf/html'
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<div class="login">
+	<h:form>
+		<h:inputText id="username" value="#{cLogInMb.username}"
+			pt:placeholder="username" rendered="#{!cusermb.loggedIn}"/>
+		<h:inputText id="password" value="#{cLogInMb.password}" pt:placeholder="password" rendered="#{!cusermb.loggedIn}" />
+		<h:commandButton value="Login" action="#{cLogInMb.logIn}"
+			rendered="#{!cusermb.loggedIn}" />
+			<h:commandButton value="Logout" action="#{cusermb.logOut}"
+			rendered="#{cusermb.loggedIn}" />
+	</h:form>
+</div>
+
+</html>

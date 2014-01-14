@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>MN</display-name>
+  <context-param>
+    <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+  <welcome-file-list>
+    <welcome-file>pages/public/index.xhtml</welcome-file>
+  </welcome-file-list>
+  <resource-ref>
+    <description>MN</description>
+    <res-ref-name>jdbc/mn</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  <filter>
+    <filter-name>MUserFilter</filter-name>
+    <filter-class>fra.project.mn.filter.muser.MUserFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>MUserHomeFilter</filter-name>
+    <filter-class>fra.project.mn.filter.muser.HomeMUserFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>CUserHomeFilter</filter-name>
+    <filter-class>fra.project.mn.filter.cuser.HomeCUserFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>CUserFilter</filter-name>
+    <filter-class>fra.project.mn.filter.cuser.CUserFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CUserFilter</filter-name>
+    <url-pattern>/pages/protected/cuser/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>MUserFilter</filter-name>
+    <url-pattern>/pages/protected/muser/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>MUserHomeFilter</filter-name>
+    <url-pattern>/pages/public/muser_index.xhtml</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CUserHomeFilter</filter-name>
+    <url-pattern>/pages/public/cuser_index.xhtml</url-pattern>
+  </filter-mapping>
+</web-app>

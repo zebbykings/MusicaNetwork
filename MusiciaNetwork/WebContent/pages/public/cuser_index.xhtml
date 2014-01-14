@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'
+	xmlns:ui='http://xmlns.jcp.org/jsf/facelets'
+	xmlns:h='http://xmlns.jcp.org/jsf/html'
+	xmlns:f='http://xmlns.jcp.org/jsf/core'
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<ui:composition template='/pages/common/commonLayout.xhtml'>
+	<ui:define name="SpacerFlag">
+		<p>
+			<h:outputText value="#{bundle.CUserIndexWelcomeMessage}"></h:outputText>
+		</p>
+		<ui:include src="/pages/public/clogin.xhtml"></ui:include>
+	</ui:define>
+	<ui:define name="BoxcontentFlag">
+		<ui:include src="/pages/common/commonContent.xhtml" />
+	</ui:define>
+	<ui:define name="commonRightFlag">
+		<p>
+			<h:outputText value="#{bundle.registerFormTitle}"></h:outputText>
+		</p>
+		<ui:include src="/pages/public/c_register.xhtml"></ui:include>
+	</ui:define>
+	<ui:define name="commonLeftFlag">
+		<p>
+			<h:outputText value="#{bundle.howItsWorkTitle}"></h:outputText>
+		</p>
+		<video width="320" height="240" jsf:id="video" controls="controls">
+			<source src="../../resources/movies/pdf.mp4" type="video/mp4"></source>
+		</video>
+	</ui:define>
+</ui:composition>
+</html>
