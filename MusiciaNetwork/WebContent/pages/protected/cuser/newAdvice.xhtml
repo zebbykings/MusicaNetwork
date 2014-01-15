@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'
+	xmlns:ui='http://java.sun.com/jsf/facelets'
+	xmlns:h='http://java.sun.com/jsf/html'
+	xmlns:f='http://java.sun.com/jsf/core'>
+
+<ui:composition template='/pages/protected/cuser/cuser_home.xhtml'>
+	<ui:define name="BoxcontentFlag">
+
+		<p>
+			<h:outputLabel value="New Advice"></h:outputLabel>
+		</p>
+
+		<div id="step_container">
+			<button id="s1b">Oggetto e Leggi</button>
+			<button id="s2b">Settori e Requisiti</button>
+			<button id="s3b">Valutazione titoli e Commissioni</button>
+		</div>
+		<h:form>
+			<div id="s1">
+				<ui:include src="./object_and_laws.xhtml" />
+			</div>
+			<div id="s2" hidden="hidden">
+				<ui:include src="./sections_and_requirements.xhtml" />
+			</div>
+			<div id="s3" hidden="hidden">
+				<ui:include src="./valutation_and_commission.xhtml" />
+			</div>
+			<h:commandButton value="Save" action="#{advicebean.save}" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>
