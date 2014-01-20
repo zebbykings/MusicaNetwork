@@ -1,11 +1,11 @@
 package fra.project.mn.dao;
 
-import fra.project.mn.model.genericdata.AdviceObject;
+import fra.project.mn.model.genericdata.Adviceobject;
 
-public class AdviceObjectDao extends GenericDAO<AdviceObject> {
+public class AdviceObjectDao extends GenericDAO<Adviceobject> {
 	private static final long serialVersionUID = 1L;
 
 	public AdviceObjectDao() {
-		super(AdviceObject.class);
+		super(Adviceobject.class);
 	}
 }

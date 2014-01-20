@@ -43,6 +43,9 @@ public class Sector {
 
 	@Override
 	public String toString() {
-		return  code+", "+sector;
+		return "Sector [idsector=" + idsector + ", sector=" + sector
+				+ ", code=" + code + "]";
 	}
+
+	
 }

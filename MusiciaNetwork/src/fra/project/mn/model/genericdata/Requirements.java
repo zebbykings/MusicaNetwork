@@ -32,6 +32,9 @@ public class Requirements {
 
 	@Override
 	public String toString() {
-		return  requirements;
+		return "Requirements [idrequirements=" + idrequirements
+				+ ", requirements=" + requirements + "]";
 	}
+
+
 }

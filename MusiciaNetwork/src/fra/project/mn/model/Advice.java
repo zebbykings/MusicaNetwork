@@ -1,89 +1,59 @@
 package fra.project.mn.model;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import fra.project.mn.model.genericdata.AdviceObject;
-import fra.project.mn.model.genericdata.Law;
-import fra.project.mn.model.genericdata.Requirements;
-import fra.project.mn.model.genericdata.Sector;
-import fra.project.mn.model.genericdata.Valutation;
+import fra.project.mn.model.genericdata.Adviceobject;
 
 @Entity
-@Table(name="advice")
+@Table(name = "ADVICE")
 public class Advice {
 
+	private long adviceId;
+	private Set<Adviceobject> adviceobjects = new HashSet<Adviceobject>(0);
+
+	public Advice() {
+	}
+
+	public Advice( Set<Adviceobject> adviceobjects) {
+		this.adviceobjects = adviceobjects;
+	}
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	int idadvice;
-	@ManyToOne
-	CUser cuser;
-	@ManyToMany
-	public List<AdviceObject> selectedObjects;
-	@ManyToMany
-	public List<Law> selectedLaws;
-	@ManyToMany
-	public List<Sector> selectedSectors;
-	@ManyToMany
-	public List<Requirements> selectedRequirements;
-	@ManyToMany
-	public List<Valutation> selectedValutation;
-
-	public String enddate;
-
-	public List<AdviceObject> getSelectedObjects() {
-		return selectedObjects;
+	@GeneratedValue
+	@Column(name = "ADVICE_ID")
+	public long getAdviceId() {
+		return this.adviceId;
 	}
 
-	public void setSelectedObjects(List<AdviceObject> selectedObjects) {
-		this.selectedObjects = selectedObjects;
+	public void setAdviceId(long adviceId) {
+		this.adviceId = adviceId;
 	}
 
-	public List<Law> getSelectedLaws() {
-		return selectedLaws;
+	@ManyToMany(cascade = CascadeType.MERGE)
+	@JoinTable(name = "ADVICE_ADVICEOBJECT", joinColumns = { @JoinColumn(name = "ADVICE_ID") }, inverseJoinColumns = { @JoinColumn(name = "ADVICEOBJECT_ID") })
+	public Set<Adviceobject> getAdviceobjects() {
+		return this.adviceobjects;
 	}
 
-	public void setSelectedLaws(List<Law> selectedLaws) {
-		this.selectedLaws = selectedLaws;
+	public void setAdviceobjects(Set<Adviceobject> adviceobjects) {
+		this.adviceobjects = adviceobjects;
 	}
 
-	public List<Sector> getSelectedSectors() {
-		return selectedSectors;
-	}
-
-	public void setSelectedSectors(List<Sector> selectedSectors) {
-		this.selectedSectors = selectedSectors;
-	}
-
-	public List<Requirements> getSelectedRequirements() {
-		return selectedRequirements;
-	}
-
-	public void setSelectedRequirements(List<Requirements> selectedRequirements) {
-		this.selectedRequirements = selectedRequirements;
-	}
-
-	public List<Valutation> getSelectedValutation() {
-		return selectedValutation;
-	}
-
-	public void setSelectedValutation(List<Valutation> selectedValutation) {
-		this.selectedValutation = selectedValutation;
-	}
-
-	public String getEnddate() {
-		return enddate;
-	}
-
-	public void setEnddate(String enddate) {
-		this.enddate = enddate;
+	@Override
+	public String toString() {
+		return "Advice [adviceId=" + adviceId + ", adviceobjects="
+				+ adviceobjects + "]";
 	}
 	
 }

@@ -20,9 +20,9 @@ public class Valutation {
 	private Sector sector;
 	@ManyToMany
 	private List<Certificate> certificates;
-
 	@Override
 	public String toString() {
-		return  sector.getCode()+" - "+sector.getSector()+", diplomi corrispondenti:  "+certificates;
-	}
+		return "Valutation [idvalutation=" + idvalutation + ", sector="
+				+ sector + ", certificates=" + certificates + "]";
+	}	
 }

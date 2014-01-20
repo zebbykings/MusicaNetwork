@@ -8,7 +8,7 @@ import fra.project.mn.dao.LawDao;
 import fra.project.mn.dao.RequiremntsDao;
 import fra.project.mn.dao.SectorsDao;
 import fra.project.mn.dao.ValutationDao;
-import fra.project.mn.model.genericdata.AdviceObject;
+import fra.project.mn.model.genericdata.Adviceobject;
 import fra.project.mn.model.genericdata.Law;
 import fra.project.mn.model.genericdata.Requirements;
 import fra.project.mn.model.genericdata.Sector;
@@ -26,9 +26,9 @@ public class GenericResourceFacade implements Serializable{
 	private RequiremntsDao rDao = new RequiremntsDao();
 	private ValutationDao vDao = new ValutationDao();
 	
-	public List<AdviceObject> getAdvicesObject(){
+	public List<Adviceobject> getObject(){
 		aoDao.beginTransaction();
-		List<AdviceObject> findAll = aoDao.findAll();
+		List<Adviceobject> findAll = aoDao.findAll();
 		aoDao.closeTransaction();
 		return findAll;
 	}

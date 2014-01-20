@@ -2,21 +2,19 @@
 <html xmlns='http://www.w3.org/1999/xhtml'
 	xmlns:ui='http://java.sun.com/jsf/facelets'
 	xmlns:h='http://java.sun.com/jsf/html'
-	xmlns:f='http://java.sun.com/jsf/core'>
+	xmlns:f='http://java.sun.com/jsf/core'
+	xmlns:p="http://primefaces.org/ui">
 
 <p>
 	<h:outputLabel value="#{bundle.objectAndLaws}"></h:outputLabel>
 </p>
 
-	<h:outputLabel value="Seleziona il motivo dell'inserzione"></h:outputLabel>
-	<h:selectManyCheckbox value="#{advicebean.selectedObjects}" layout="pageDirection">
-		<f:selectItems value="#{genericresource.advicesObjects}" var="ao"
-		itemLabel="#{ao.adviceObjects}"/>
+
+	<h:selectManyCheckbox value="#{advicebean.objects}"
+		layout="pageDirection">
+		<f:selectItems value="#{genericresource.objects}" />
+
 	</h:selectManyCheckbox>
-	
-	<h:outputLabel value="Seleziona le leggi di riferimento"></h:outputLabel>
-	<h:selectManyCheckbox value="#{advicebean.selectedLaws}" layout="pageDirection">
-		<f:selectItems value="#{genericresource.laws}" var="l"
-		itemLabel="#{l.law}"/>
-	</h:selectManyCheckbox>
+
+
 </html>

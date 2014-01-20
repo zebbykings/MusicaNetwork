@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import fra.project.mn.facade.GenericResourceFacade;
-import fra.project.mn.model.genericdata.AdviceObject;
+import fra.project.mn.model.genericdata.Adviceobject;
 import fra.project.mn.model.genericdata.Law;
 import fra.project.mn.model.genericdata.Requirements;
 import fra.project.mn.model.genericdata.Sector;
@@ -29,8 +29,8 @@ public class GenericResource implements Serializable{
 		return genericUserFacade;
 	}
 	
-	public List<AdviceObject> getAdvicesObjects(){		
-		return getGenericResourceFacade().getAdvicesObject();
+	public List<Adviceobject> getObjects(){		
+		return getGenericResourceFacade().getObject();
 	}
 	public List<Law> getLaws(){		
 		return getGenericResourceFacade().getLaws();

@@ -13,6 +13,14 @@
 		<f:selectItems value="#{genericresource.valutations}" />
 	</h:selectManyCheckbox>
 	
-	<label for="meeting">Scadenza : </label><input id="meeting" type="date" value="#{advicebean.enddate}"/>
+		
+	<!-- BEGIN -->
+
+	
+    <h:inputText
+        id="inputDateText"
+        value="#{advicebean.enddate}" />
+
+    <!-- END -->
 	
 </html>

@@ -14,10 +14,12 @@ public class Certificate {
 	public int idcertificate;
 	private String subject;
 	private String type;
-
-
 	@Override
 	public String toString() {
-		return  subject+" "+type;
+		return "Certificate [idcertificate=" + idcertificate + ", subject="
+				+ subject + ", type=" + type + "]";
 	}
+
+
+	
 }
