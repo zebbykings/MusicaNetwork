@@ -12,9 +12,10 @@
 
 	<h:selectManyCheckbox value="#{advicebean.objects}"
 		layout="pageDirection">
-		<f:selectItems value="#{genericresource.objects}" />
+		
+		<f:selectItems value="#{genericresource.objects}" var="o" itemValue="#{o.adviceobjectId}" itemLabel="#{o.objectTitle}"/>
 
 	</h:selectManyCheckbox>
 
-
+	
 </html>

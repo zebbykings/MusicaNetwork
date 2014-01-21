@@ -9,10 +9,12 @@ import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.jboss.weld.bean.builtin.ee.HttpSessionBean;
 
+import fra.project.mn.constant.Constant;
 import fra.project.mn.dao.AdviceDao;
 import fra.project.mn.facade.AdviceFacade;
 import fra.project.mn.model.Advice;
@@ -32,7 +34,7 @@ public class AdviceBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private AdviceFacade adviceFacade;
-	public List<Adviceobject> objects;
+	public Set<String> objects = new HashSet<String>();
 	public List<Law> selectedLaws;
 	public List<Sector> selectedSectors;
 	public List<Requirements> selectedRequirements;
@@ -50,11 +52,11 @@ public class AdviceBean implements Serializable{
 
 	public String enddate="10/10/2012";
 	
-	public List<Adviceobject> getObjects() {
+	public Set<String> getObjects() {
 		return objects;
 	}	
 
-	public void setObjects(List<Adviceobject> objects) {
+	public void setObjects(Set<String> objects) {
 		this.objects = objects;
 	}
 
@@ -114,8 +116,25 @@ public class AdviceBean implements Serializable{
 	private void fillAdviceFromProperties(Advice advice, CUser cuser) {
 //		advice.setEnddate(enddate);
 //		advice.setSelectedLaws(selectedLaws);
-		Set<Adviceobject> s = new HashSet<Adviceobject>(0);
-		s.addAll(objects);
+		for (String objectId : objects) {
+			
+		}
+		List<Adviceobject> object_list = (List<Adviceobject>) getFromSessiion(Constant.ADVICEOBJECT_LIST);
+		
+		long[] array_long = new long[this.objects.size()];
+		int i = 0;
+		for (String object_id : this.objects) {
+			array_long[i]=Long.parseLong(object_id);
+		}
+		HashSet<Adviceobject> s = new HashSet<Adviceobject>();
+		for (Adviceobject adviceobject : object_list) {
+			for(i = 0; i<array_long.length;i++){
+				if(adviceobject.getAdviceobjectId()==array_long[i]){
+					s.add(adviceobject);
+				}
+			}
+			
+		}
 		advice.setAdviceobjects(s);
 //		advice.setSelectedRequirements(selectedRequirements);
 //		advice.setSelectedValutation(selectedValutation);
@@ -129,5 +148,12 @@ public class AdviceBean implements Serializable{
 			adviceFacade = new AdviceFacade();
 		}
 		return adviceFacade;
+	}
+	
+	private Object getFromSessiion(String object_name) {
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context
+				.getExternalContext().getRequest();
+		return request.getSession().getAttribute(object_name);
 	}
 }

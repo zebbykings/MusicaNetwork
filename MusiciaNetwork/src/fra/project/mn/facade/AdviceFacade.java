@@ -2,6 +2,7 @@ package fra.project.mn.facade;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -18,20 +19,14 @@ public class AdviceFacade implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private AdviceDao adviceDao = new AdviceDao();
 	
-	public void createAdvice(Advice advice) {
+	public void createAdvice(Advice advice/*, List<String> objects*/) {
 		
-		
-//		prendo gli advice object dal db e li ad advice
-//		HashSet<Adviceobject> hashSet = new HashSet<Adviceobject>();
-//		AdviceObjectDao adoa = new AdviceObjectDao();
-//		adoa.beginTransaction();
-//		List<Adviceobject> findAll = adoa.findAll();
-//		adoa.closeTransaction();
-//		
-//		Set <Adviceobject> s = new HashSet<Adviceobject>();
-//		s.addAll(findAll);
-//		advice.setAdviceobjects(s);
-//===============================================
+		Set<Adviceobject> adviceobjects = advice.getAdviceobjects();
+		List<Long> adIds = new LinkedList<Long>();
+		for (Adviceobject adviceobject : adviceobjects) {
+			System.out.println(adviceobject);			
+		}
+
 		adviceDao.beginTransaction();
 		adviceDao.save(advice);
 		adviceDao.commitAndCloseTransaction();
