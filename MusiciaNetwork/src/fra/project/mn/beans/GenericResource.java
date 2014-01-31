@@ -24,7 +24,11 @@ public class GenericResource implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private GenericResourceFacade genericUserFacade;
-	private List<Adviceobject> object = getGenericResourceFacade().getObject(); 
+	private List<Adviceobject> object;
+	private List<Law> laws;
+	private List<Requirements> requiriments;
+	private List<Valutation> valutations;
+	private List<Sector> sectors;
 	
 	private GenericResourceFacade getGenericResourceFacade() {
 		if(genericUserFacade==null){
@@ -37,22 +41,41 @@ public class GenericResource implements Serializable{
 		this.object = object;
 	}
 	public List<Adviceobject> getObjects(){	
-//		TODO put in session requested list
-		putInSessiion(Constant.ADVICEOBJECT_LIST, object);
+		if(object==null){
+			object = getGenericResourceFacade().getObject(); 
+			putInSessiion(Constant.ADVICEOBJECT_LIST, object);
+		}
 		return object;
 	}
 
-	public List<Law> getLaws(){		
-		return getGenericResourceFacade().getLaws();
-	}
-	public List<Sector> getSectors(){		
-		return getGenericResourceFacade().getSectors();
+	public List<Law> getLaws(){	
+		if(this.laws==null){
+			laws = getGenericResourceFacade().getLaws();
+			putInSessiion(Constant.LAW_LIST, this.laws);
+		}
+		return laws;
 	}
 	public List<Requirements> getRequirements(){		
-		return getGenericResourceFacade().getRequirements();
+		if(this.requiriments==null){
+			requiriments = getGenericResourceFacade().getRequirements();
+			putInSessiion(Constant.REQUERIMENTS, this.requiriments);
+		}
+		return requiriments;
 	}
+	public List<Sector> getSectors(){		
+		if(this.sectors==null){
+			sectors = getGenericResourceFacade().getSectors();
+			putInSessiion(Constant.SECTORS, this.sectors);
+		}
+		return sectors;
+	}
+	
 	public List<Valutation> getValutations(){		
-		return getGenericResourceFacade().getValutations();
+		if(this.valutations==null){
+			valutations = getGenericResourceFacade().getValutations();
+			putInSessiion(Constant.VALUTATIONS, this.valutations);
+		}
+		return valutations;
 	}
 	
 	private void putInSessiion(String object_name, Object object) {

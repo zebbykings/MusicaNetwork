@@ -1,24 +1,28 @@
 package fra.project.mn.model.genericdata;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import fra.project.mn.model.Advice;
+
 @Entity
-@Table(name = "requirements")
 public class Requirements {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
-	public int idrequirements;
+	public long idrequirements;
 	private String requirements;
 
-	public int getIdrequirements() {
+	public long getIdrequirements() {
 		return idrequirements;
 	}
 
-	public void setIdrequirements(int idrequirements) {
+	public void setIdrequirements(long idrequirements) {
 		this.idrequirements = idrequirements;
 	}
 

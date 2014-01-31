@@ -21,9 +21,15 @@ public class CUserMB extends UserMb implements Serializable {
 	
 	public static final String INJECTION_NAME = "#{cusermb}";
 			
-	private CUser cuser;
-
+	private CUser cuser/*=new CUser()*/;
+	
 	public boolean isLoggedIn(){
+//		=============
+//		cuser.setIdCUser(1);
+//		cuser.setName("c");
+//		cuser.setUsername("c");
+//		cuser.setPassword("c");
+//		==============
 		return cuser!=null;
 	}
 	public void setCuser(CUser cuser) {

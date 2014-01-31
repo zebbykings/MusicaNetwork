@@ -6,6 +6,7 @@
 
  <persistence-unit name='MusciaNetworkPU' transaction-type='RESOURCE_LOCAL'>
   <provider>org.hibernate.ejb.HibernatePersistence</provider>
+  <class>fra.project.mn.model.genericdata.Sector</class>
 
   <properties>
    <property name='javax.persistence.jdbc.driver' value='com.mysql.jdbc.Driver' />

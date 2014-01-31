@@ -10,9 +10,11 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import fra.project.mn.beans.cuser.CUserMB;
 import fra.project.mn.filter.AbstractFilter;
+import fra.project.mn.model.CUser;
 
 public class HomeCUserFilter extends AbstractFilter implements Filter {
 	private static List<String> allowedURIs;
@@ -24,8 +26,17 @@ public class HomeCUserFilter extends AbstractFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		CUserMB cmb=null;
+//		==
+//		HttpSession session = req.getSession();
+//		CUser c = new CUser();
+//		c.setIdCUser(1);
+//		c.setName("c");
+//		c.setUsername("c");
+//		c.setPassword("c");		
+//		session.setAttribute("cuser", c);
+//		==
 		if(isLoggedIn(req, "cusermb", cmb)){
-			goTo(request, response, req, "/pages/protected/cuser/cuser_home.xhtml");
+			goTo(request, response, req, "/pages/protected/cuser/myAdvices/myAdvices.xhtml");
 			return;
 		}
 		chain.doFilter(request, response);

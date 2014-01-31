@@ -2,6 +2,7 @@ package fra.project.mn.dao;
 
 import java.util.*;
 
+import fra.project.mn.model.Advice;
 import fra.project.mn.model.CUser;
 
 public class CUserDao extends GenericDAO<CUser> {
@@ -31,4 +32,5 @@ public class CUserDao extends GenericDAO<CUser> {
 				parameters);
 		return findOneResult;
 	}
+	
 }

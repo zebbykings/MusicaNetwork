@@ -3,16 +3,57 @@
 	xmlns:ui='http://java.sun.com/jsf/facelets'
 	xmlns:h='http://java.sun.com/jsf/html'
 	xmlns:f='http://java.sun.com/jsf/core'>
-	
-	<ui:composition template='/pages/common/commonLayout.xhtml'>
-		<ui:define name="SpacerFlag">
+
+<ui:composition template='/pages/common/commonLayout.xhtml'>
+	<ui:define name="SpacerFlag">
 		<p>
 			<h:outputText value="#{bundle.MUserHomeWelcomeMessage }"></h:outputText>
 			<h:outputText value="#{musermb.muser.name}"></h:outputText>
 		</p>
 		<ui:include src="/pages/public/mlogin.xhtml"></ui:include>
-		</ui:define>
-	</ui:composition>
-	
-				
+	</ui:define>
+	<ui:define name="BoxcontentFlag">
+		<ui:include src="/pages/common/commonContent.xhtml" />
+	</ui:define>
+	<ui:define name="commonRightFlag">
+
+		<h:dataTable binding="#{mAdvice.table}" value="#{mAdvice.advices}"
+			var="a" styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+
+			<h:column>
+
+				<h1>
+					<h:outputText value="#{a.title}"></h:outputText>
+				</h1>
+				<p>
+					<h:outputText value="relativo al conservatorio #{a.cuser.name}"></h:outputText>
+				</p>
+				<p>
+					<h:outputText
+						value="la domanda deve essere inoltrato entro il #{a.enddate}"></h:outputText>
+				</p>
+				<h:form>
+
+					<h:commandButton value="+">
+						<f:setPropertyActionListener target="#{mAdvice.idToShow}"
+							value="#{a.adviceId}" />
+						<f:ajax render=":#{mAdvice.ottId} :#{mAdvice.otparagrapgId}" />
+					</h:commandButton>
+
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+
+	</ui:define>
+	<ui:define name="commonLeftFlag">
+		<form id="detail_form">
+			<h1><h:outputText id="detail_title" value="#{mAdvice.adviceDetailTitle}" binding="#{mAdvice.titleDetailOT}"/></h1>
+			<p><h:outputText id="detail_paragrapg" value="#{mAdvice.adviceDetailParagraph}" binding="#{mAdvice.paragraphDetailOT}"/></p>
+		</form>
+	</ui:define>
+
+</ui:composition>
+
 </html>

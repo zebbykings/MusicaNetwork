@@ -22,15 +22,15 @@
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>NewAdvice</from-outcome>
-			<to-view-id>/pages/protected/cuser/newAdvice.xhtml</to-view-id>
+			<to-view-id>/pages/protected/cuser/newAdvice/newAdvice.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>MyAdvices</from-outcome>
-			<to-view-id>/pages/protected/cuser/cuser_home.xhtml</to-view-id>
+			<to-view-id>/pages/protected/cuser/myAdvices/myAdvices.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>Applications</from-outcome>
-			<to-view-id>/pages/protected/cuser/myAdvice.xhtml</to-view-id>
+			<to-view-id>/pages/protected/cuser/applications.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>

@@ -2,7 +2,9 @@
 <html xmlns='http://www.w3.org/1999/xhtml'
 	xmlns:ui='http://java.sun.com/jsf/facelets'
 	xmlns:h='http://java.sun.com/jsf/html'
-	xmlns:f='http://java.sun.com/jsf/core'>
+	xmlns:f='http://java.sun.com/jsf/core'
+	xmlns:jsf='http://xmlns.jcp.org/jsf'
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <p>
 	<h:outputLabel value="Valutazione e Commissione"></h:outputLabel>
@@ -10,17 +12,8 @@
 
 	<h:outputLabel value="Criteri di valutazione dei titoli"></h:outputLabel>
 	<h:selectManyCheckbox value="#{advicebean.selectedValutation}" layout="pageDirection">
-		<f:selectItems value="#{genericresource.valutations}" />
+		<f:selectItems value="#{genericresource.valutations}" var="v" itemLabel="v.sector" itemValue="#{v.idvalutation}" />
 	</h:selectManyCheckbox>
 	
-		
-	<!-- BEGIN -->
-
-	
-    <h:inputText
-        id="inputDateText"
-        value="#{advicebean.enddate}" />
-
-    <!-- END -->
-	
+	<h:inputText  pt:type="date" value="#{advicebean.enddate}" ></h:inputText>
 </html>

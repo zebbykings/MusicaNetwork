@@ -2,7 +2,8 @@
 <html xmlns='http://www.w3.org/1999/xhtml'
 	xmlns:ui='http://java.sun.com/jsf/facelets'
 	xmlns:h='http://java.sun.com/jsf/html'
-	xmlns:f='http://java.sun.com/jsf/core'>
+	xmlns:f='http://java.sun.com/jsf/core'
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <ui:composition template='/pages/protected/cuser/cuser_home.xhtml'>
 	<ui:define name="BoxcontentFlag">
@@ -17,6 +18,8 @@
 			<button id="s3b">Valutazione titoli e Commissioni</button>
 		</div>
 		<h:form>
+			<h:inputText id="advice_title" value="#{advicebean.title}"
+			pt:placeholder="inserisci il titolo" />
 			<div id="s1">
 				<ui:include src="./object_and_laws.xhtml" />
 			</div>

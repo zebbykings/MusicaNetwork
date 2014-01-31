@@ -178,6 +178,19 @@ nav ul li a:hover {
 	max-width: 50px
 }
 
+#boxcontent article table p{
+	line-height: 25px;
+	font-family: -webkit-pictograph;
+	margin-left: 10px;
+}
+
+#boxcontent article table h1{
+	line-height: 25px;
+	font-family: -webkit-pictograph;
+	font-weight: bold;
+	margin-top: 25px;
+}
+
 #slider_content1,#slider_content2,#slider_content3 {
 	line-height: 25px;
 	font-family: 'Open Sans', sans-serif;

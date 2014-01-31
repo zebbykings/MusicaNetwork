@@ -20,6 +20,7 @@
   </context-param>
   <welcome-file-list>
     <welcome-file>pages/public/index.xhtml</welcome-file>
+<!-- 		<welcome-file>pages/public/cuser_index.xhtml</welcome-file> -->
   </welcome-file-list>
   <resource-ref>
     <description>MN</description>

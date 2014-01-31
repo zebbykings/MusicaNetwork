@@ -10,10 +10,22 @@
 </p>
 
 
+<p>
+	<h:outputLabel value="Seleziona gli oggetti dell'inserzione"></h:outputLabel>
+</p>
 	<h:selectManyCheckbox value="#{advicebean.objects}"
 		layout="pageDirection">
 		
 		<f:selectItems value="#{genericresource.objects}" var="o" itemValue="#{o.adviceobjectId}" itemLabel="#{o.objectTitle}"/>
+
+	</h:selectManyCheckbox>
+<p>
+	<h:outputLabel value="Seleziona le leggi di riferimento"></h:outputLabel>
+</p>
+	<h:selectManyCheckbox value="#{advicebean.selectedLaws}"
+		layout="pageDirection">
+		
+		<f:selectItems value="#{genericresource.laws}" var="l" itemValue="#{l.idlaw}" itemLabel="#{l.law}"/>
 
 	</h:selectManyCheckbox>
 
