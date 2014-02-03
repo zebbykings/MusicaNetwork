@@ -38,7 +38,7 @@
 					<h:commandButton value="+">
 						<f:setPropertyActionListener target="#{mAdvice.idToShow}"
 							value="#{a.adviceId}" />
-						<f:ajax render=":#{mAdvice.ottId} :#{mAdvice.otparagrapgId}" />
+						<f:ajax render=":#{mAdvice.titleDetailId} :#{mAdvice.objectDetailId} :#{mAdvice.lawDetailId} :#{mAdvice.sectorDetailId} :#{mAdvice.introductionId}"/>
 					</h:commandButton>
 
 				</h:form>
@@ -48,9 +48,25 @@
 
 	</ui:define>
 	<ui:define name="commonLeftFlag">
-		<form id="detail_form">
-			<h1><h:outputText id="detail_title" value="#{mAdvice.adviceDetailTitle}" binding="#{mAdvice.titleDetailOT}"/></h1>
-			<p><h:outputText id="detail_paragrapg" value="#{mAdvice.adviceDetailParagraph}" binding="#{mAdvice.paragraphDetailOT}"/></p>
+		<form id="detail_form">			
+			<!--Intestazione -->
+			<img id="detail_logo" src="/MusciaNetwork/resources/images/min_ico.png" />
+			<h1><h:outputText id="detail_heading" value="#{mAdvice.adviceHeading}" /></h1>
+			<h1><h:outputText id="detail_heading_II" value="#{mAdvice.adviceHeadingII}" /></h1>
+			<!--Conservatorio -->
+			<h1><h:outputText id="detail_conservatory_name" value="#{mAdvice.conservatoryName}" /></h1>
+			
+			<!--Oggetto -->
+			<h1><h:outputText id="detail_objects" value="#{mAdvice.adviceObject}" binding="#{mAdvice.objectDetailOT}"/></h1>
+			<!--Titolo -->
+			<h1><h:outputText id="detail_title" value="#{mAdvice.adviceTitle}" binding="#{mAdvice.titleDetailOT}"/></h1>
+			<!--Introdaction -->
+			<p><h:outputText id="detail_introduction" value="#{mAdvice.introduction}" binding="#{mAdvice.introductionDetailOT}"/></p>
+			<!--leggi-->
+			<p><h:outputText id="detail_laws" value="#{mAdvice.adviceLaws}" binding="#{mAdvice.lawDetailOT}"/></p>
+			<!--settori -->
+			<p><h:outputText id="detail_sector" value="#{mAdvice.adviceSectors}" binding="#{mAdvice.sectorDetailOT}"/></p>
+				
 		</form>
 	</ui:define>
 

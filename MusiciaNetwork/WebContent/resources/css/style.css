@@ -175,20 +175,67 @@ nav ul li a:hover {
 
 #boxcontent article form p {
 	margin: 0px 0px 0px 0px;
-	max-width: 50px
 }
 
-#boxcontent article table p{
+#boxcontent article table p {
 	line-height: 25px;
 	font-family: -webkit-pictograph;
 	margin-left: 10px;
 }
 
-#boxcontent article table h1{
+#boxcontent article table h1 {
 	line-height: 25px;
 	font-family: -webkit-pictograph;
 	font-weight: bold;
 	margin-top: 25px;
+}
+
+#boxcontent article #detail_form {
+	text-align: center;
+}
+
+#boxcontent article #detail_form #detail_heading {
+	font-style: italic;
+	line-height: 25px;
+}
+	#boxcontent
+	 
+	article
+	 
+	#detail_form
+	 
+	#detail_heading_II
+{
+}
+
+#boxcontent article #detail_form #detail_logo {
+	float: initial;
+}
+
+#boxcontent article #detail_form #detail_conservatory_name {
+	font-weight: bold;
+	line-height: 5;
+}
+
+#boxcontent article #detail_form #detail_title {
+	line-height: 5;
+}
+
+#boxcontent article #detail_form #detail_objects {
+	
+}
+
+#boxcontent article #detail_form #detail_laws {
+	
+}
+
+#boxcontent article #detail_form #detail_sector {
+	
+}
+
+#boxcontent article #detail_form p {
+	margin-right: 0px;
+	
 }
 
 #slider_content1,#slider_content2,#slider_content3 {
@@ -738,7 +785,13 @@ transform
 
 
 
+
+
+
+
 :translateX(260px)
+
+
 
 
 
@@ -748,7 +801,13 @@ transform
 
 
 
+
+
 translateY
+
+
+
+
 
 
 
@@ -765,8 +824,16 @@ px
 
 
 
+
+
+
+
 )
 rotate
+
+
+
+
 
 
 
@@ -783,8 +850,16 @@ deg
 
 
 
+
+
+
+
 )
 translate
+
+
+
+
 
 
 
@@ -815,7 +890,13 @@ transform
 
 
 
+
+
+
+
 :translateX(50px)
+
+
 
 
 
@@ -825,7 +906,13 @@ transform
 
 
 
+
+
 translateY
+
+
+
+
 
 
 
@@ -842,8 +929,16 @@ px
 
 
 
+
+
+
+
 )
 rotate
+
+
+
+
 
 
 
@@ -860,8 +955,16 @@ deg
 
 
 
+
+
+
+
 )
 translate
+
+
+
+
 
 
 
