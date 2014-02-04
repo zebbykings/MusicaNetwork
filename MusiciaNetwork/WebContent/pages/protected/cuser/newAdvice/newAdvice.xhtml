@@ -6,31 +6,64 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <ui:composition template='/pages/protected/cuser/cuser_home.xhtml'>
+
 	<ui:define name="BoxcontentFlag">
+	
+		<article id="new_advice_article_id">
+			<form id="detail_form">
+				<!--Intestazione -->
+				<img id="detail_logo"
+					src="/MusciaNetwork/resources/images/min_ico.png" />
+				<h1>
+					<h:outputText id="detail_heading"
+						value="#{advicebean.adviceHeading}" />
+				</h1>
+				<h1>
+					<h:outputText id="detail_heading_II"
+						value="#{advicebean.adviceHeadingII}" />
+				</h1>
+				<!--Conservatorio -->
+				<h1>
+					<h:outputText id="detail_conservatory_name"
+						value="#{advicebean.conservatoryName}" />
+				</h1>
 
-		<p>
-			<h:outputLabel value="New Advice"></h:outputLabel>
-		</p>
+				<!--Oggetto -->
+				<h:selectManyCheckbox class="new_advice_mcb"
+					value="#{advicebean.objects}" layout="pageDirection">
 
-		<div id="step_container">
-			<button id="s1b">Oggetto e Leggi</button>
-			<button id="s2b">Settori e Requisiti</button>
-			<button id="s3b">Valutazione titoli e Commissioni</button>
-		</div>
-		<h:form>
-			<h:inputText id="advice_title" value="#{advicebean.title}"
-			pt:placeholder="inserisci il titolo" />
-			<div id="s1">
-				<ui:include src="./object_and_laws.xhtml" />
-			</div>
-			<div id="s2" hidden="hidden">
-				<ui:include src="./sections_and_requirements.xhtml" />
-			</div>
-			<div id="s3" hidden="hidden">
-				<ui:include src="./valutation_and_commission.xhtml" />
-			</div>
-			<h:commandButton value="Save" action="#{advicebean.save}" />
-		</h:form>
+					<f:selectItems value="#{genericresource.objects}" var="o"
+						itemValue="#{o.adviceobjectId}" itemLabel="#{o.objectTitle}" />
+
+				</h:selectManyCheckbox>
+				<!--Titolo -->
+				<h:inputText id="detail_title" value="#{advicebean.title}"
+					pt:placeholder="inserisci il titolo" />
+				<!--Introdaction -->
+				<p>
+					<h:outputText id="detail_introduction"
+						value="#{advicebean.introduction}" />
+				</p>
+				<!--sector-->
+				<h:selectManyCheckbox class="new_advice_mcb"
+					value="#{advicebean.selectedSectors}" layout="pageDirection">
+					<f:selectItems value="#{genericresource.sectors}" var="s"
+						itemValue="#{s.sectorId}" itemLabel="#{s.code}" />
+				</h:selectManyCheckbox>
+				<p>
+					<h:outputText value="VISTO" />
+				</p>
+				<!--law-->
+				<h:selectManyCheckbox class="new_advice_mcb"
+					value="#{advicebean.selectedLaws}" layout="pageDirection">
+
+					<f:selectItems value="#{genericresource.laws}" var="l"
+						itemValue="#{l.idlaw}" itemLabel="#{l.law}" />
+
+				</h:selectManyCheckbox>
+
+			</form>
+		</article>
 	</ui:define>
 </ui:composition>
 

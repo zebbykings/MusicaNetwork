@@ -1,8 +1,10 @@
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml'
 	xmlns:ui='http://java.sun.com/jsf/facelets'
 	xmlns:h='http://java.sun.com/jsf/html'
-	xmlns:f='http://java.sun.com/jsf/core'>
+	xmlns:f='http://java.sun.com/jsf/core'
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf='http://xmlns.jcp.org/jsf'>
 
 <ui:composition template='/pages/common/commonLayout.xhtml'>
 	<ui:define name="SpacerFlag">
@@ -62,11 +64,26 @@
 			<h1><h:outputText id="detail_title" value="#{mAdvice.adviceTitle}" binding="#{mAdvice.titleDetailOT}"/></h1>
 			<!--Introdaction -->
 			<p><h:outputText id="detail_introduction" value="#{mAdvice.introduction}" binding="#{mAdvice.introductionDetailOT}"/></p>
-			<!--leggi-->
-			<p><h:outputText id="detail_laws" value="#{mAdvice.adviceLaws}" binding="#{mAdvice.lawDetailOT}"/></p>
 			<!--settori -->
-			<p><h:outputText id="detail_sector" value="#{mAdvice.adviceSectors}" binding="#{mAdvice.sectorDetailOT}"/></p>
-				
+			<h:dataTable class="list_container" value="#{mAdvice.adviceSectors}" var="s">
+				<h:column>
+					<li ><h:outputText value="#{s.code}, #{s.name}"></h:outputText></li>					
+				</h:column>
+			</h:dataTable>
+			<!--sector-->
+			<h:dataTable id="detail_sectors_table" class="list_container" value="#{mAdvice.adviceSectors}" var="s" binding="#{mAdvice.sectorDetailDT}">
+				<h:column>
+					<li ><h:outputText value="#{s.code}, #{s.name}"></h:outputText></li>					
+				</h:column>
+			</h:dataTable>
+			<p><h:outputText value="VISTO" /></p>
+			<!--law-->
+			<h:dataTable id="detail_laws_table" class="list_container" value="#{mAdvice.adviceLaws}" var="l" binding="#{mAdvice.lawDetailDT}">
+				<h:column>
+					<li ><h:outputText value="#{l.law}"></h:outputText></li>					
+				</h:column>
+			</h:dataTable>
+							
 		</form>
 	</ui:define>
 

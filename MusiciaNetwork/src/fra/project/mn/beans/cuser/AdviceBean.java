@@ -187,4 +187,23 @@ public class AdviceBean extends AdviceB implements Serializable{
 	}
 
 
+	// get detail data method
+		public String getAdviceHeading() {
+			// TODO template
+			return "Ministero dell’Istruzione, dell’Università e della Ricerca";
+		}
+
+		public String getAdviceHeadingII() {
+			// TODO template
+			return "ALTA FORMAZIONE ARTISTICA E MUSICALE";
+		}
+		public String getIntroduction() {
+			// TODO template
+			return "RAVVISATA la necessità di predisporre le graduatorie d’Istituto per i settori disciplinari";
+		}
+		
+		public String getConservatoryName(){
+			return ((CUser) getFromSession(Constant.CUSER)).getName();
+		}
+	
 }

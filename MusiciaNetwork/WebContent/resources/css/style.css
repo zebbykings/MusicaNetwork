@@ -137,7 +137,7 @@ nav ul li a:hover {
 	width: auto;
 	margin: 0 auto;
 	max-width: 1000px;
-	padding: 70px 0 45px 0;
+	padding: 5px 0 45px 0;
 }
 
 #boxcontent article {
@@ -190,52 +190,48 @@ nav ul li a:hover {
 	margin-top: 25px;
 }
 
-#boxcontent article #detail_form {
-	text-align: center;
+#boxcontent #new_advice_article_id {
+	border-radius: initial;
+	width: initial;
+	padding: 0;
+	float: initial;
+}
+#boxcontent .new_advice_mcb {
+	text-align: left;
 }
 
-#boxcontent article #detail_form #detail_heading {
+#boxcontent #detail_form {
+	text-align: center;
+	background-color: white;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	border-style: groove;
+}
+
+#boxcontent #detail_form #detail_heading {
 	font-style: italic;
 	line-height: 25px;
 }
-	#boxcontent
-	 
-	article
-	 
-	#detail_form
-	 
-	#detail_heading_II
-{
+
+#boxcontent .list_container {
+	text-indent: 30px;
 }
 
-#boxcontent article #detail_form #detail_logo {
+#boxcontent #detail_form #detail_logo {
 	float: initial;
 }
 
-#boxcontent article #detail_form #detail_conservatory_name {
+#boxcontent #detail_form #detail_conservatory_name {
 	font-weight: bold;
 	line-height: 5;
 }
 
-#boxcontent article #detail_form #detail_title {
-	line-height: 5;
+#boxcontent #detail_form #detail_title {
+	margin: 20px;
 }
 
-#boxcontent article #detail_form #detail_objects {
-	
-}
-
-#boxcontent article #detail_form #detail_laws {
-	
-}
-
-#boxcontent article #detail_form #detail_sector {
-	
-}
-
-#boxcontent article #detail_form p {
+#boxcontent #detail_form p {
 	margin-right: 0px;
-	
 }
 
 #slider_content1,#slider_content2,#slider_content3 {
@@ -789,7 +785,19 @@ transform
 
 
 
+
+
+
+
+
+
+
+
 :translateX(260px)
+
+
+
+
 
 
 
@@ -803,7 +811,19 @@ transform
 
 
 
+
+
+
+
 translateY
+
+
+
+
+
+
+
+
 
 
 
@@ -828,8 +848,24 @@ px
 
 
 
+
+
+
+
+
+
+
+
 )
 rotate
+
+
+
+
+
+
+
+
 
 
 
@@ -854,8 +890,24 @@ deg
 
 
 
+
+
+
+
+
+
+
+
 )
 translate
+
+
+
+
+
+
+
+
 
 
 
@@ -894,7 +946,19 @@ transform
 
 
 
+
+
+
+
+
+
+
+
 :translateX(50px)
+
+
+
+
 
 
 
@@ -908,7 +972,19 @@ transform
 
 
 
+
+
+
+
 translateY
+
+
+
+
+
+
+
+
 
 
 
@@ -933,8 +1009,24 @@ px
 
 
 
+
+
+
+
+
+
+
+
 )
 rotate
+
+
+
+
+
+
+
+
 
 
 
@@ -959,8 +1051,24 @@ deg
 
 
 
+
+
+
+
+
+
+
+
 )
 translate
+
+
+
+
+
+
+
+
 
 
 
