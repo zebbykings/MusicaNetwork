@@ -7,6 +7,12 @@
 	xmlns:jsf='http://xmlns.jcp.org/jsf'>
 
 <ui:composition template='/pages/common/commonLayout.xhtml'>
+	<ui:define name="nav">
+		<ul>
+			<li><h:link value="Profilo" outcome="Profile" /></li>
+			<li><h:link value="Annunci" outcome="Advices" /></li>
+		</ul>
+	</ui:define>
 	<ui:define name="SpacerFlag">
 		<p>
 			<h:outputText value="#{bundle.MUserHomeWelcomeMessage }"></h:outputText>
@@ -19,28 +25,31 @@
 	</ui:define>
 	<ui:define name="commonRightFlag">
 
-		<h:dataTable binding="#{mAdvice.table}" value="#{mAdvice.advices}"
+		<h:dataTable binding="#{adviceShow.table}" value="#{adviceShow.advices}"
 			var="a" styleClass="order-table" headerClass="order-table-header"
 			rowClasses="order-table-odd-row,order-table-even-row">
 
 			<h:column>
 
-				<h1>
+				<h1 class="advices_list_title">
 					<h:outputText value="#{a.title}"></h:outputText>
 				</h1>
 				<p>
-					<h:outputText value="relativo al conservatorio #{a.cuser.name}"></h:outputText>
+					<h:outputText class="advice_list_cname" value="#{a.cuser.name}"></h:outputText>
 				</p>
 				<p>
-					<h:outputText
-						value="la domanda deve essere inoltrato entro il #{a.enddate}"></h:outputText>
+					<h:outputText class="advice_list_scadenza"
+						value="scade il #{a.enddate}"></h:outputText>
 				</p>
 				<h:form>
 
-					<h:commandButton value="+">
-						<f:setPropertyActionListener target="#{mAdvice.idToShow}"
+					<h:commandButton value="dettagli annuncio ->">
+						<f:setPropertyActionListener target="#{adviceShow.idToShow}"
 							value="#{a.adviceId}" />
-						<f:ajax render=":#{mAdvice.titleDetailId} :#{mAdvice.objectDetailId} :#{mAdvice.lawDetailId} :#{mAdvice.sectorDetailId} :#{mAdvice.introductionId}"/>
+						<f:setPropertyActionListener target="#{adviceShow.soruce}"
+							value="muser" />
+						<f:ajax
+							render=":detail_form:#{adviceShow.titleDetailId} :detail_form:#{adviceShow.lawDetailId} :detail_form:#{adviceShow.sectorDetailId} :detail_form:#{adviceShow.introductionId}" />
 					</h:commandButton>
 
 				</h:form>
@@ -50,41 +59,13 @@
 
 	</ui:define>
 	<ui:define name="commonLeftFlag">
-		<form id="detail_form">			
-			<!--Intestazione -->
-			<img id="detail_logo" src="/MusciaNetwork/resources/images/min_ico.png" />
-			<h1><h:outputText id="detail_heading" value="#{mAdvice.adviceHeading}" /></h1>
-			<h1><h:outputText id="detail_heading_II" value="#{mAdvice.adviceHeadingII}" /></h1>
-			<!--Conservatorio -->
-			<h1><h:outputText id="detail_conservatory_name" value="#{mAdvice.conservatoryName}" /></h1>
-			
-			<!--Oggetto -->
-			<h1><h:outputText id="detail_objects" value="#{mAdvice.adviceObject}" binding="#{mAdvice.objectDetailOT}"/></h1>
-			<!--Titolo -->
-			<h1><h:outputText id="detail_title" value="#{mAdvice.adviceTitle}" binding="#{mAdvice.titleDetailOT}"/></h1>
-			<!--Introdaction -->
-			<p><h:outputText id="detail_introduction" value="#{mAdvice.introduction}" binding="#{mAdvice.introductionDetailOT}"/></p>
-			<!--settori -->
-			<h:dataTable class="list_container" value="#{mAdvice.adviceSectors}" var="s">
-				<h:column>
-					<li ><h:outputText value="#{s.code}, #{s.name}"></h:outputText></li>					
-				</h:column>
-			</h:dataTable>
-			<!--sector-->
-			<h:dataTable id="detail_sectors_table" class="list_container" value="#{mAdvice.adviceSectors}" var="s" binding="#{mAdvice.sectorDetailDT}">
-				<h:column>
-					<li ><h:outputText value="#{s.code}, #{s.name}"></h:outputText></li>					
-				</h:column>
-			</h:dataTable>
-			<p><h:outputText value="VISTO" /></p>
-			<!--law-->
-			<h:dataTable id="detail_laws_table" class="list_container" value="#{mAdvice.adviceLaws}" var="l" binding="#{mAdvice.lawDetailDT}">
-				<h:column>
-					<li ><h:outputText value="#{l.law}"></h:outputText></li>					
-				</h:column>
-			</h:dataTable>
-							
-		</form>
+		<h:form id="detail_form" rendered="#{adviceShow.adviceSetted}">
+			<ui:include src="/pages/protected/muser/Advice.xhtml" />
+			<h:commandButton rendered="#{!mAdvice.isJustCandidated}"
+				value="mi candido" action="#{mAdvice.Apply}">
+			</h:commandButton>
+			<h:graphicImage value="/resources/images/checkok.png" rendered="#{mAdvice.isJustCandidated}"></h:graphicImage>
+		</h:form>
 	</ui:define>
 
 </ui:composition>

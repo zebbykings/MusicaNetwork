@@ -1,9 +1,21 @@
 package fra.project.mn.model;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.persistence.*;
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.MapKey;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "cuser")
@@ -24,9 +36,14 @@ public class CUser implements Serializable {
 	private String name;
 	private String username;
 	private String password;
+//	private String score;
 	@ManyToMany
 	private List<MUser> musers;
-
+//	@ElementCollection
+//	@CollectionTable(name="graded_muser")
+//	@MapKey(name="score")
+//	private Map<Integer, MUser> graded_musers = new HashMap<Integer, MUser>();
+	
 	public List<MUser> getMusers() {
 		return musers;
 	}
@@ -66,6 +83,17 @@ public class CUser implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+
+	
+
+//	public Map<Integer, MUser> getGraded_musers() {
+//		return graded_musers;
+//	}
+//
+//	public void setGraded_musers(Map<Integer, MUser> graded_musers) {
+//		this.graded_musers = graded_musers;
+//	}
 
 	@Override
 	public boolean equals(Object obj) {

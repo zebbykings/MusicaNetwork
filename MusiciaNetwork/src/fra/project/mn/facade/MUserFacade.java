@@ -26,6 +26,14 @@ public class MUserFacade implements Serializable{
 		muserDao.closeTransaction();	
 		return muser;
 	}
+	
+	public MUser getMuserById(long entityID) {
+		muserDao.beginTransaction();
+		MUser muser = muserDao.find(entityID);
+		muserDao.closeTransaction();	
+		return muser;
+	}
+	
 
 }
 

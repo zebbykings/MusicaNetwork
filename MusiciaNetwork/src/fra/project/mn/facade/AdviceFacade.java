@@ -1,17 +1,10 @@
 package fra.project.mn.facade;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
-
-import org.primefaces.push.AdvancedPushContextListener;
 
 import fra.project.mn.dao.AdviceDao;
-import fra.project.mn.dao.AdviceObjectDao;
 import fra.project.mn.model.Advice;
-import fra.project.mn.model.genericdata.Adviceobject;
 
 public class AdviceFacade implements Serializable{
 
@@ -35,6 +28,11 @@ public class AdviceFacade implements Serializable{
 	public void removeById(long id){
 		adviceDao.beginTransaction();
 		adviceDao.deleteById(id);
+		adviceDao.commitAndCloseTransaction();
+	}
+	public void update(Advice adviceToShow) {
+		adviceDao.beginTransaction();
+		adviceDao.update(adviceToShow);
 		adviceDao.commitAndCloseTransaction();
 	}
 }

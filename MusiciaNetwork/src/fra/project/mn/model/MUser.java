@@ -1,7 +1,9 @@
 package fra.project.mn.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +14,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import fra.project.mn.model.genericdata.Certificate;
+import fra.project.mn.model.genericdata.Sector;
 
 @Entity
 @Table(name="muser")
@@ -35,6 +40,10 @@ public class MUser implements Serializable{
 	private String password;
 	@ManyToMany
 	private List<CUser> cusers;
+	@ManyToMany()
+	private Set<Sector> sectors = new HashSet<Sector>();
+	@ManyToMany()
+	private Set<Certificate> certificates = new HashSet<Certificate>();
 	
 	public int getIdmuser() {
 		return idmuser;
@@ -66,6 +75,19 @@ public class MUser implements Serializable{
 	}
 	public void setCusers(List<CUser> cusers) {
 		this.cusers = cusers;
+	}
+	
+	public Set<Sector> getSectors() {
+		return sectors;
+	}
+	public void setSectors(Set<Sector> sectors) {
+		this.sectors = sectors;
+	}	
+	public Set<Certificate> getCertificates() {
+		return certificates;
+	}
+	public void setCertificates(Set<Certificate> certificates) {
+		this.certificates = certificates;
 	}
 	@Override
 	public int hashCode() {

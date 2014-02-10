@@ -8,61 +8,43 @@
 <ui:composition template='/pages/protected/cuser/cuser_home.xhtml'>
 
 	<ui:define name="BoxcontentFlag">
-	
+
 		<article id="new_advice_article_id">
-			<form id="detail_form">
+			<h:form id="detail_form">
 				<!--Intestazione -->
-				<img id="detail_logo"
-					src="/MusciaNetwork/resources/images/min_ico.png" />
+				<img src="/MusciaNetwork/resources/images/min_ico.png" />
 				<h1>
-					<h:outputText id="detail_heading"
-						value="#{advicebean.adviceHeading}" />
+					<h:outputText class="detail_heading"
+						value="#{adviceBean.adviceHeading}" />
 				</h1>
 				<h1>
-					<h:outputText id="detail_heading_II"
-						value="#{advicebean.adviceHeadingII}" />
+					<h:outputText class="detail_heading_II"
+						value="#{adviceBean.adviceHeadingII}" />
 				</h1>
 				<!--Conservatorio -->
 				<h1>
-					<h:outputText id="detail_conservatory_name"
-						value="#{advicebean.conservatoryName}" />
+					<h:outputText class="detail_conservatory_name"
+						value="AVVISO DI PROCEDURA PUBBLICA, FINALIZZATA ALLA FORMAZIONE DI GRADUATORIE D’ISTITUTO" />
 				</h1>
 
-				<!--Oggetto -->
-				<h:selectManyCheckbox class="new_advice_mcb"
-					value="#{advicebean.objects}" layout="pageDirection">
-
-					<f:selectItems value="#{genericresource.objects}" var="o"
-						itemValue="#{o.adviceobjectId}" itemLabel="#{o.objectTitle}" />
-
-				</h:selectManyCheckbox>
-				<!--Titolo -->
-				<h:inputText id="detail_title" value="#{advicebean.title}"
-					pt:placeholder="inserisci il titolo" />
 				<!--Introdaction -->
 				<p>
 					<h:outputText id="detail_introduction"
-						value="#{advicebean.introduction}" />
+						value="seleziona i settori disciplinari per cui si vuole creare il bando" />
 				</p>
 				<!--sector-->
-				<h:selectManyCheckbox class="new_advice_mcb"
-					value="#{advicebean.selectedSectors}" layout="pageDirection">
-					<f:selectItems value="#{genericresource.sectors}" var="s"
-						itemValue="#{s.sectorId}" itemLabel="#{s.code}" />
+				<h:selectManyCheckbox id="sector_smc_id" class="new_advice_mcb"
+					value="#{adviceBean.selectedSectors}" layout="pageDirection">
+					<f:selectItems value="#{adviceBean.sectors}" var="s"
+						itemValue="#{s.sectorId}" itemLabel="#{s.code}, #{s.name}" />
 				</h:selectManyCheckbox>
-				<p>
-					<h:outputText value="VISTO" />
-				</p>
-				<!--law-->
-				<h:selectManyCheckbox class="new_advice_mcb"
-					value="#{advicebean.selectedLaws}" layout="pageDirection">
+			
+				<h:outputLabel value="Seleziona la data di scadenza del bando"></h:outputLabel>
 
-					<f:selectItems value="#{genericresource.laws}" var="l"
-						itemValue="#{l.idlaw}" itemLabel="#{l.law}" />
+				<h:inputText pt:type="date" value="#{adviceBean.enddate}"></h:inputText>
 
-				</h:selectManyCheckbox>
-
-			</form>
+				<h:commandButton value="Save" action="#{adviceBean.save}" />
+			</h:form>
 		</article>
 	</ui:define>
 </ui:composition>

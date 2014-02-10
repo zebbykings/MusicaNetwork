@@ -5,22 +5,20 @@
 	xmlns:f='http://java.sun.com/jsf/core'>
 
 <ui:composition template='/pages/common/commonLayout.xhtml'>
+	
+	<ui:define name="nav">
+			<ul>
+				<li><h:link value="My Advices" outcome="MyAdvices" /></li>
+				<li><h:link value="New Advice" outcome="NewAdvice" /></li>
+			</ul>
+	</ui:define>
+	
 	<ui:define name="SpacerFlag">
 		<p>
-			<h:outputText value="#{bundle.CUserHomeWelcomeMessage} "></h:outputText>
 			<h:outputText value="#{cusermb.cuser.name}"></h:outputText>
 
 		</p>
-		<nav>
-			<ul>
-				<li><h:graphicImage
-						value="/MusciaNetwork/resources/images/min_ico.png"
-						onclick="MyAdvices"></h:graphicImage></li>
-				<li><h:link value="My Advices" outcome="MyAdvices" /></li>
-				<li><h:link value="New Advice" outcome="NewAdvice" /></li>
-				<li><h:link value="Applications" outcome="Applications" /></li>
-			</ul>
-		</nav>
+
 		<ui:include src="/pages/public/clogin.xhtml"></ui:include>
 	</ui:define>
 

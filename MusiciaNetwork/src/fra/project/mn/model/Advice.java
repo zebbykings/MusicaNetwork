@@ -3,20 +3,14 @@ package fra.project.mn.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
-import fra.project.mn.model.genericdata.Adviceobject;
 import fra.project.mn.model.genericdata.Law;
 import fra.project.mn.model.genericdata.Requirements;
 import fra.project.mn.model.genericdata.Sector;
@@ -38,17 +32,14 @@ public class Advice {
 	private CUser cuser;
 	private String enddate;
 	private String title;
-	private Set<Adviceobject> adviceobjects = new HashSet<Adviceobject>(0);
 	private Set<Law> laws = new HashSet<Law>(0);
 	private Set<Sector> sectors = new HashSet<Sector>(0);
 	private Set<Requirements> requirements = new HashSet<Requirements>(0);
 	private Set<Valutation> valutations = new HashSet<Valutation>(0);
+	private Set<MUser> musicans = new HashSet<MUser>(0);
 	public Advice() {
 	}
 
-	public Advice( Set<Adviceobject> adviceobjects) {
-		this.adviceobjects = adviceobjects;
-	}
 
 	@Id
 	@GeneratedValue
@@ -74,13 +65,7 @@ public class Advice {
 		this.cuser = cuser;
 	}	
 
-	@ManyToMany()
-	public Set<Adviceobject> getAdviceobjects() {
-		return this.adviceobjects;
-	}	
-	public void setAdviceobjects(Set<Adviceobject> adviceobjects) {
-		this.adviceobjects = adviceobjects;
-	}
+
 	
 	@ManyToMany()
 	public Set<Law> getLaws() {
@@ -113,9 +98,15 @@ public class Advice {
 	public void setValutations(Set<Valutation> valutations) {
 		this.valutations = valutations;
 	}
-	
-	
-	
+		@ManyToMany()
+	public Set<MUser> getMusicans() {
+		return musicans;
+	}
+
+	public void setMusicans(Set<MUser> musicans) {
+		this.musicans = musicans;
+	}
+
 	public String getEnddate() {
 		return enddate;
 	}
@@ -128,7 +119,7 @@ public class Advice {
 	public String toString() {
 		return "Advice [adviceId=" + adviceId + ", cuser=" + cuser
 				+ ", enddate=" + enddate + ", title=" + title
-				+ ", adviceobjects=" + adviceobjects + ", laws=" + laws
+				+ ", laws=" + laws
 				+ ", sectors=" + sectors + ", requirements=" + requirements
 				+ ", valutations=" + valutations + "]";
 	}

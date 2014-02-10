@@ -9,54 +9,34 @@ import java.util.Set;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
 import fra.project.mn.beans.AdviceB;
+import fra.project.mn.beans.AdviceTemplate;
 import fra.project.mn.constant.Constant;
-import fra.project.mn.facade.CUserFacade;
 import fra.project.mn.model.Advice;
 import fra.project.mn.model.CUser;
-import fra.project.mn.model.genericdata.Adviceobject;
 import fra.project.mn.model.genericdata.Law;
 import fra.project.mn.model.genericdata.Requirements;
 import fra.project.mn.model.genericdata.Sector;
 import fra.project.mn.model.genericdata.Valutation;
 
-@ManagedBean(name="advicebean")
+@ManagedBean
 @SessionScoped
 public class AdviceBean extends AdviceB implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private CUserFacade cuserFacade;
+	private AdviceTemplate ad = new AdviceTemplate();
+	
 //	create Advice data
-	public Set<String> objects = new HashSet<String>();
-	public Set<String> selectedLaws = new HashSet<String>();
 	public Set<String> selectedSectors = new HashSet<String>();
-	public Set<String> selectedRequirements = new HashSet<String>();
-	public Set<String> selectedValutation = new HashSet<String>();
 	public String enddate="2014-01-30";
-	public String title="";
-//	getter data
-	public List<Advice> myAdvices;
+
 //	update data
 	public String idToRemove;
-	
-	public Set<String> getObjects() {
-		return objects;
-	}
-	public void setObjects(Set<String> objects) {
-		this.objects = objects;
-	}
 
-
-	public Set<String> getSelectedLaws() {
-		return selectedLaws;
-	}
-	public void setSelectedLaws(Set<String> selectedLaws) {
-		this.selectedLaws = selectedLaws;
+	public Set<Sector> getCurrentSelectedSectors(){
+		HashSet<Sector> sector_list = getObjectByIdFromSession(Constant.SECTORS, this.selectedSectors, "getSectorId");
+		return sector_list;
 	}
 
 	public Set<String> getSelectedSectors() {
@@ -65,86 +45,62 @@ public class AdviceBean extends AdviceB implements Serializable{
 	public void setSelectedSectors(Set<String> selectedSectors) {
 		this.selectedSectors = selectedSectors;
 	}
-
-	public Set<String> getSelectedRequirements() {
-		return selectedRequirements;
-	}
-	public void setSelectedRequirements(Set<String> selectedRequirements) {
-		this.selectedRequirements = selectedRequirements;
-	}
-
-	public Set<String> getSelectedValutation() {
-		return selectedValutation;
-	}
-	public void setSelectedValutation(Set<String> selectedValutation) {
-		this.selectedValutation = selectedValutation;
-	} 
 	
+	public List<Sector> getSectors() {
+		return this.ad.getSectors();
+	}
+
 	public String getEnddate() {
 		return enddate;
 	}
 	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	}
-	
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-			
-	public String getIdToRemove() {
-		return idToRemove;
-	}
-	public void setIdToRemove(String idToRemove) {
-		this.idToRemove = idToRemove;
-	}
-	
-	public String remove(){
-		long id_advice = Long.parseLong((FacesContext.getCurrentInstance().
-				getExternalContext().getRequestParameterMap().get("a_id")));
-			getAdviceFacade().removeById(id_advice);
-		return "";
-	}
-	
-	public List<Advice> getMyAdvices() {
-		myAdvices = getCuserFacade().getMyAdvice(((CUser) getFromSession(Constant.CUSER)));
-		return myAdvices;
-	}
-	
+
 	public String save(){
 		Advice advice = new Advice();
-		fillAdviceFromProperties(advice);
+		fillAdvice(advice);
 		getAdviceFacade().createAdvice(advice);
 		
-//		TODO
-		return "";
+		return "MyAdvices";
 	}
-	private void fillAdviceFromProperties(Advice advice) {
+	
+	public String getAdviceHeading() {
+		return this.ad.getAdviceHeading();
+	}
+
+	public String getAdviceHeadingII() {
+		return this.ad.getAdviceHeadingII();
+
+	}
+	
+	private void fillAdvice(Advice advice) {
 		advice.setEnddate(enddate);
-		advice.setTitle(title);
 		
-		HashSet<Adviceobject> ado_list = getObjectFromSession(Constant.ADVICEOBJECT_LIST, this.objects, "getAdviceobjectId");
-		advice.setAdviceobjects(ado_list);
+//		set all default list on advice
+		advice.setTitle(this.ad.getTitle());
 		
-		HashSet<Law> law_list = getObjectFromSession(Constant.LAW_LIST, this.selectedLaws, "getIdlaw");
+		HashSet<Law> law_list = new HashSet<Law>();
+		law_list.addAll(this.ad.getLaws());
 		advice.setLaws(law_list);
-		
-		HashSet<Sector> sector_list= getObjectFromSession(Constant.SECTORS, this.selectedSectors, "getSectorId");
-		advice.setSectors(sector_list);
-		
-		HashSet<Requirements> requiriment_list= getObjectFromSession(Constant.REQUERIMENTS, this.selectedRequirements, "getIdrequirements");
-		advice.setRequirements(requiriment_list);
-		
-		HashSet<Valutation> valutation_list= getObjectFromSession(Constant.VALUTATIONS, this.selectedValutation, "getIdvalutation");
+		HashSet<Requirements> requiriment_list = new HashSet<Requirements>();
+		requiriment_list.addAll(this.ad.getRequirements());
+		advice.setRequirements(requiriment_list);		
+		HashSet<Valutation> valutation_list = new HashSet<Valutation>();
+		valutation_list.addAll(this.ad.getValutations());
 		advice.setValutations(valutation_list);
+		
+//		set sectors from selected item
+		HashSet<Sector> sector_list= getObjectByIdFromSession(Constant.SECTORS, this.selectedSectors, "getSectorId");
+		advice.setSectors(sector_list);
 		
 		advice.setCuser((CUser) getFromSession(Constant.CUSER));
 	}
-	private <T> HashSet<T> getObjectFromSession(String constant, Set<String> id_list, String method_name) {
+	
+	private <T> HashSet<T> getObjectByIdFromSession(String constant, Set<String> id_list, String method_name) {
 		@SuppressWarnings("unchecked")
-		List<T> t_list = (List<T>) getFromSession(constant);
+//		List<T> t_list = (List<T>) getFromSession(constant);
+		List<T> t_list = (List<T>) this.ad.getSectors();
 		
 		long[] array_long = new long[id_list.size()];
 		int i = 0;
@@ -179,31 +135,4 @@ public class AdviceBean extends AdviceB implements Serializable{
 		return s;
 	}
 
-	private CUserFacade getCuserFacade(){
-		if(cuserFacade==null){
-			cuserFacade = new CUserFacade();
-		}
-		return cuserFacade;
-	}
-
-
-	// get detail data method
-		public String getAdviceHeading() {
-			// TODO template
-			return "Ministero dell’Istruzione, dell’Università e della Ricerca";
-		}
-
-		public String getAdviceHeadingII() {
-			// TODO template
-			return "ALTA FORMAZIONE ARTISTICA E MUSICALE";
-		}
-		public String getIntroduction() {
-			// TODO template
-			return "RAVVISATA la necessità di predisporre le graduatorie d’Istituto per i settori disciplinari";
-		}
-		
-		public String getConservatoryName(){
-			return ((CUser) getFromSession(Constant.CUSER)).getName();
-		}
-	
 }

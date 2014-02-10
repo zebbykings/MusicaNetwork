@@ -18,7 +18,6 @@ public class Certificate {
 	public int idcertificate;
 	private String subject;
 	private String type;
-	private Set<Valutation> valuations = new HashSet<Valutation>(0);
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -52,21 +51,10 @@ public class Certificate {
 		this.type = type;
 	}
 
-	@ManyToMany(mappedBy="certificates")
-	public Set<Valutation> getValuation() {
-		return valuations;
-	}
-
-	public void setValuation(Set<Valutation> valuations) {
-		this.valuations = valuations;
-	}
 
 	@Override
 	public String toString() {
-		return "Certificate [idcertificate=" + idcertificate + ", subject="
-				+ subject + ", type=" + type + "]";
+		return  subject + ", " + type;
 	}
 
-
-	
 }

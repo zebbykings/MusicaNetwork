@@ -30,7 +30,15 @@
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>Applications</from-outcome>
-			<to-view-id>/pages/protected/cuser/applications.xhtml</to-view-id>
+			<to-view-id>/pages/protected/cuser/applications/applications.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Profile</from-outcome>
+			<to-view-id>/pages/protected/muser/profile.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Advices</from-outcome>
+			<to-view-id>/pages/protected/muser/muser_home.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
