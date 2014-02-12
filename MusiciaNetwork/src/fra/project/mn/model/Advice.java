@@ -14,7 +14,6 @@ import javax.persistence.NamedQuery;
 import fra.project.mn.model.genericdata.Law;
 import fra.project.mn.model.genericdata.Requirements;
 import fra.project.mn.model.genericdata.Sector;
-import fra.project.mn.model.genericdata.Valutation;
 
 @Entity
 
@@ -35,7 +34,6 @@ public class Advice {
 	private Set<Law> laws = new HashSet<Law>(0);
 	private Set<Sector> sectors = new HashSet<Sector>(0);
 	private Set<Requirements> requirements = new HashSet<Requirements>(0);
-	private Set<Valutation> valutations = new HashSet<Valutation>(0);
 	private Set<MUser> musicans = new HashSet<MUser>(0);
 	public Advice() {
 	}
@@ -91,13 +89,7 @@ public class Advice {
 		this.requirements = requirements;
 	}
 	
-	@ManyToMany()
-	public Set<Valutation> getValutations() {
-		return this.valutations;
-	}
-	public void setValutations(Set<Valutation> valutations) {
-		this.valutations = valutations;
-	}
+	
 		@ManyToMany()
 	public Set<MUser> getMusicans() {
 		return musicans;
@@ -120,8 +112,7 @@ public class Advice {
 		return "Advice [adviceId=" + adviceId + ", cuser=" + cuser
 				+ ", enddate=" + enddate + ", title=" + title
 				+ ", laws=" + laws
-				+ ", sectors=" + sectors + ", requirements=" + requirements
-				+ ", valutations=" + valutations + "]";
+				+ ", sectors=" + sectors + ", requirements=" + requirements+ "]";
 	}
 
 	

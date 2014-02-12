@@ -185,6 +185,36 @@ nav ul li a:hover {
 	font-weight: bold;
 	margin-top: 25px;
 }
+/* --------------------muser profile------------------ */
+#boxcontent .profile_article_id {
+	border: none;
+	background-color: white;
+}
+
+#boxcontent .profile_article_id .profile_img {
+	float: left;
+	margin-right: 20px;
+}
+
+#boxcontent .profile_article_id .profile_data {
+	height: 102px;
+}
+
+#boxcontent .profile_article_id .profile_data .profile_detail_name {
+	padding: 10px;
+}
+
+#boxcontent .profile_article_id .profile_data .profile_detail_mail {
+	padding: 10px;
+}
+
+#boxcontent .profile_article_id .profile_certificate_ico {
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin-right: 40px;
+}
+
 /* --------------------css new advice template data------------------ */
 #boxcontent #new_advice_article_id {
 	border-radius: initial;
@@ -192,6 +222,7 @@ nav ul li a:hover {
 	padding: 10;
 	float: initial;
 }
+
 #boxcontent .new_advice_mcb {
 	text-align: left;
 }
@@ -213,7 +244,6 @@ nav ul li a:hover {
 	text-indent: 30px;
 }
 
-
 #detail_form .detail_conservatory_name {
 	font-weight: bold;
 	line-height: 5;
@@ -227,7 +257,6 @@ nav ul li a:hover {
 	margin-right: 0px;
 }
 /* --------------------css advice template data------------------ */
-
 #slider_content1,#slider_content2,#slider_content3 {
 	line-height: 25px;
 	font-family: 'Open Sans', sans-serif;
@@ -787,7 +816,13 @@ transform
 
 
 
+
+
+
+
 :translateX(260px)
+
+
 
 
 
@@ -809,7 +844,13 @@ transform
 
 
 
+
+
 translateY
+
+
+
+
 
 
 
@@ -850,8 +891,16 @@ px
 
 
 
+
+
+
+
 )
 rotate
+
+
+
+
 
 
 
@@ -892,8 +941,16 @@ deg
 
 
 
+
+
+
+
 )
 translate
+
+
+
+
 
 
 
@@ -948,7 +1005,13 @@ transform
 
 
 
+
+
+
+
 :translateX(50px)
+
+
 
 
 
@@ -970,7 +1033,13 @@ transform
 
 
 
+
+
 translateY
+
+
+
+
 
 
 
@@ -1011,8 +1080,16 @@ px
 
 
 
+
+
+
+
 )
 rotate
+
+
+
+
 
 
 
@@ -1053,8 +1130,16 @@ deg
 
 
 
+
+
+
+
 )
 translate
+
+
+
+
 
 
 

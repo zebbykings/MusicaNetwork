@@ -7,7 +7,6 @@ import fra.project.mn.facade.GenericResourceFacade;
 import fra.project.mn.model.genericdata.Law;
 import fra.project.mn.model.genericdata.Requirements;
 import fra.project.mn.model.genericdata.Sector;
-import fra.project.mn.model.genericdata.Valutation;
 
 public class AdviceTemplate implements Serializable {
 
@@ -18,7 +17,6 @@ public class AdviceTemplate implements Serializable {
 	private GenericResourceFacade genericUserFacade;
 	private List<Law> laws;
 	private List<Requirements> requiriments;
-	private List<Valutation> valutations;
 	private List<Sector> sectors;
 
 	private GenericResourceFacade getGenericResourceFacade() {
@@ -49,12 +47,6 @@ public class AdviceTemplate implements Serializable {
 		return sectors;
 	}
 
-	public List<Valutation> getValutations() {
-		if (this.valutations == null) {
-			valutations = getGenericResourceFacade().getValutations();
-		}
-		return valutations;
-	}
 
 	public String getTitle() {
 		return "AVVISO DI PROCEDURA PUBBLICA FINALIZZATA ALLA FORMAZIONE DI GRADUATORIE D’ISTITUTO";

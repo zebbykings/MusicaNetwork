@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import fra.project.mn.beans.UserMb;
 import fra.project.mn.model.MUser;
-import fra.project.mn.model.genericdata.Certificate;
+import fra.project.mn.model.genericdata.MuserCertificate;
 import fra.project.mn.model.genericdata.Sector;
 
 @ManagedBean(name="musermb")

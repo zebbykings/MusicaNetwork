@@ -13,10 +13,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import fra.project.mn.model.genericdata.Certificate;
+import fra.project.mn.model.genericdata.MuserCertificate;
+import fra.project.mn.model.genericdata.Eligibility;
+import fra.project.mn.model.genericdata.Esibition;
+import fra.project.mn.model.genericdata.MusicalProduction;
+import fra.project.mn.model.genericdata.Publication;
 import fra.project.mn.model.genericdata.Sector;
+import fra.project.mn.model.genericdata.ServiceTitle;
 
 @Entity
 @Table(name="muser")
@@ -43,7 +49,17 @@ public class MUser implements Serializable{
 	@ManyToMany()
 	private Set<Sector> sectors = new HashSet<Sector>();
 	@ManyToMany()
-	private Set<Certificate> certificates = new HashSet<Certificate>();
+	private Set<MuserCertificate> certificates = new HashSet<MuserCertificate>();
+	@OneToMany
+	private Set<ServiceTitle> serviceTitles = new HashSet<ServiceTitle>();
+	@OneToMany
+	private Set<Publication> pubblicatons = new HashSet<Publication>();
+	@OneToMany
+	private Set<MusicalProduction> musicalProductions = new HashSet<MusicalProduction>();
+	@OneToMany
+	private Set<Esibition> esibitions = new HashSet<Esibition>();
+	@OneToMany
+	private Set<Eligibility> eligibility = new HashSet<Eligibility>();
 	
 	public int getIdmuser() {
 		return idmuser;
@@ -83,11 +99,45 @@ public class MUser implements Serializable{
 	public void setSectors(Set<Sector> sectors) {
 		this.sectors = sectors;
 	}	
-	public Set<Certificate> getCertificates() {
+	public Set<MuserCertificate> getCertificates() {
 		return certificates;
 	}
-	public void setCertificates(Set<Certificate> certificates) {
+	public void setCertificates(Set<MuserCertificate> certificates) {
 		this.certificates = certificates;
+	}
+	
+	public Set<ServiceTitle> getServiceTitles() {
+		return serviceTitles;
+	}
+	public void setServiceTitles(Set<ServiceTitle> serviceTitles) {
+		this.serviceTitles = serviceTitles;
+	}
+	
+	
+	
+	public Set<Publication> getPubblicatons() {
+		return pubblicatons;
+	}
+	public void setPubblicatons(Set<Publication> pubblicatons) {
+		this.pubblicatons = pubblicatons;
+	}
+	public Set<MusicalProduction> getMusicalProductions() {
+		return musicalProductions;
+	}
+	public void setMusicalProductions(Set<MusicalProduction> musicalProductions) {
+		this.musicalProductions = musicalProductions;
+	}
+	public Set<Esibition> getEsibitions() {
+		return esibitions;
+	}
+	public void setEsibitions(Set<Esibition> esibitions) {
+		this.esibitions = esibitions;
+	}
+	public Set<Eligibility> getEligibility() {
+		return eligibility;
+	}
+	public void setEligibility(Set<Eligibility> eligibility) {
+		this.eligibility = eligibility;
 	}
 	@Override
 	public int hashCode() {

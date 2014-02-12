@@ -7,11 +7,9 @@ import fra.project.mn.beans.Bean;
 import fra.project.mn.dao.LawDao;
 import fra.project.mn.dao.RequiremntsDao;
 import fra.project.mn.dao.SectorsDao;
-import fra.project.mn.dao.ValutationDao;
 import fra.project.mn.model.genericdata.Law;
 import fra.project.mn.model.genericdata.Requirements;
 import fra.project.mn.model.genericdata.Sector;
-import fra.project.mn.model.genericdata.Valutation;
 
 public class GenericResourceFacade extends Bean implements Serializable{
 
@@ -22,7 +20,6 @@ public class GenericResourceFacade extends Bean implements Serializable{
 	private LawDao lDao = new LawDao();
 	private SectorsDao sDao = new SectorsDao();
 	private RequiremntsDao rDao = new RequiremntsDao();
-	private ValutationDao vDao = new ValutationDao();
 	
 
 	public List<Law> getLaws() {
@@ -43,10 +40,5 @@ public class GenericResourceFacade extends Bean implements Serializable{
 		rDao.closeTransaction();
 		return findAll;
 	}
-	public List<Valutation> getValutations() {
-		vDao.beginTransaction();
-		List<Valutation> findAll = vDao.findAll();
-		vDao.closeTransaction();
-		return findAll;
-	}
+	
 }

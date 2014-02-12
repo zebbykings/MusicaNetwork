@@ -1,6 +1,7 @@
 package fra.project.mn.model.genericdata;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -20,10 +21,11 @@ public class Sector implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long sectorId;
-
 	private String code;
-
 	private String name;
+	@ManyToMany
+	private Set<SectoreRule> allowedCertificatesRule = new HashSet<SectoreRule>();
+	
 	public Sector() {
 	}
 
@@ -49,6 +51,16 @@ public class Sector implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	
+	
+	public Set<SectoreRule> getAllowedCertificatesRule() {
+		return allowedCertificatesRule;
+	}
+
+	public void setAllowedCertificatesRule(Set<SectoreRule> allowedCertificates) {
+		this.allowedCertificatesRule = allowedCertificates;
 	}
 
 	/* (non-Javadoc)

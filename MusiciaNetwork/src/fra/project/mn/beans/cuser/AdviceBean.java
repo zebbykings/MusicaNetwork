@@ -18,7 +18,6 @@ import fra.project.mn.model.CUser;
 import fra.project.mn.model.genericdata.Law;
 import fra.project.mn.model.genericdata.Requirements;
 import fra.project.mn.model.genericdata.Sector;
-import fra.project.mn.model.genericdata.Valutation;
 
 @ManagedBean
 @SessionScoped
@@ -86,9 +85,6 @@ public class AdviceBean extends AdviceB implements Serializable{
 		HashSet<Requirements> requiriment_list = new HashSet<Requirements>();
 		requiriment_list.addAll(this.ad.getRequirements());
 		advice.setRequirements(requiriment_list);		
-		HashSet<Valutation> valutation_list = new HashSet<Valutation>();
-		valutation_list.addAll(this.ad.getValutations());
-		advice.setValutations(valutation_list);
 		
 //		set sectors from selected item
 		HashSet<Sector> sector_list= getObjectByIdFromSession(Constant.SECTORS, this.selectedSectors, "getSectorId");
