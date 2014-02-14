@@ -24,6 +24,10 @@ public class MuserCertificate {
 	@OneToMany
 	private Set<Sector> sectors = new HashSet<Sector>();
 
+	public MuserCertificate() {
+		super();
+	}
+
 	public int getIdcertificate() {
 		return idcertificate;
 	}

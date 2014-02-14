@@ -33,6 +33,13 @@ public class MUserFacade implements Serializable{
 		muserDao.closeTransaction();	
 		return muser;
 	}
+
+	public void update(MUser m) {
+		muserDao.beginTransaction();
+		muserDao.update(m);
+		muserDao.commitAndCloseTransaction();
+		
+	}
 	
 
 }

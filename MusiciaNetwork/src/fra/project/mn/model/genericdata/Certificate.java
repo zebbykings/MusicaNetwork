@@ -8,14 +8,26 @@ import javax.persistence.Table;
 
 @Entity
 public class Certificate {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int idcertificate;
 	private String subject;
 	private CertificateType certificateType;
 	private InstitiuteType institiute;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Certificate() {
+		super();
+	}
+	
+	public Certificate(String subject, CertificateType certificateType,
+			InstitiuteType institiute) {
+		super();
+		this.subject = subject;
+		this.certificateType = certificateType;
+		this.institiute = institiute;
+	}
+
 	public int getIdcertificate() {
 		return idcertificate;
 	}

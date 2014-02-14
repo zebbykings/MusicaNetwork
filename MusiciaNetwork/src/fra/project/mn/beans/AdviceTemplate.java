@@ -1,9 +1,12 @@
 package fra.project.mn.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import fra.project.mn.facade.GenericResourceFacade;
+import fra.project.mn.model.genericdata.Certificate;
+import fra.project.mn.model.genericdata.InstitiuteType;
 import fra.project.mn.model.genericdata.Law;
 import fra.project.mn.model.genericdata.Requirements;
 import fra.project.mn.model.genericdata.Sector;
@@ -61,5 +64,6 @@ public class AdviceTemplate implements Serializable {
 		// TODO template
 		return "ALTA FORMAZIONE ARTISTICA E MUSICALE";
 	}
+
 
 }

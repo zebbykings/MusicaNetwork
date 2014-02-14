@@ -3,7 +3,6 @@ package fra.project.mn.dao;
 import java.util.HashMap;
 import java.util.Map;
 
-import fra.project.mn.model.CUser;
 import fra.project.mn.model.MUser;
 
 public class MUserDao extends GenericDAO<MUser> {
