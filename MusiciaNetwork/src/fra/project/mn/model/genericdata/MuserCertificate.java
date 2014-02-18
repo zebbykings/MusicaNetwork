@@ -7,13 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name = "MuserCertificate.findCertifcateByProperties", query = "select mc from MuserCertificate mc where mc.certificate = :certificate")
 public class MuserCertificate {
 	
+	public static final String FIND_MUSERCERTIFICATE_BY_PROPERTIES = "MuserCertificate.findCertifcateByProperties";
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int idcertificate;
@@ -21,7 +24,7 @@ public class MuserCertificate {
 	private Certificate certificate;
 	private String city;
 	private String year;
-	@OneToMany
+	@ManyToMany
 	private Set<Sector> sectors = new HashSet<Sector>();
 
 	public MuserCertificate() {

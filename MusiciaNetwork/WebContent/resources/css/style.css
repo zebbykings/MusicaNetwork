@@ -213,6 +213,11 @@ nav ul li a:hover {
 	padding: 10px;
 }
 
+#boxcontent .profile_article_id .profile_data .profile_detail_sector_table tr
+	{
+	float: left;
+}
+
 #boxcontent .profile_article_id .profile_certificate_ico {
 	float: left;
 	width: 50px;
@@ -224,7 +229,7 @@ nav ul li a:hover {
 	padding-top: 10px;
 }
 
-#boxcontent .profile_article_id .progile_detail_addTitleButton {
+#boxcontent .profile_article_id .profile_detail_addTitleButton {
 	float: right;
 }
 
@@ -233,7 +238,6 @@ nav ul li a:hover {
 	padding: 20px;
 	margin: 20px;
 	height: 210px;
-	width: 750px;
 }
 
 #boxcontent .profile_article_id .insertTitleHeader {
@@ -262,6 +266,14 @@ nav ul li a:hover {
 #boxcontent .profile_article_id .insertTitleDivButton {
 	float: right;
 	margin-top: 35px;
+}
+
+#boxcontent .profile_article_id .studyTitles {
+	margin: 30px;
+}
+
+#boxcontent .profile_article_id .profile_detail_studyTitle_table td{
+	padding-bottom: 10px;
 }
 
 /* --------------------css new advice template data------------------ */
@@ -1707,7 +1719,10 @@ transform
 
 
 
+
+
 :translateX(260px)
+
 
 
 
@@ -1743,7 +1758,10 @@ transform
 
 
 
+
 translateY
+
+
 
 
 
@@ -1812,8 +1830,12 @@ px
 
 
 
+
+
 )
 rotate
+
+
 
 
 
@@ -1882,8 +1904,12 @@ deg
 
 
 
+
+
 )
 translate
+
+
 
 
 
@@ -1966,7 +1992,10 @@ transform
 
 
 
+
+
 :translateX(50px)
+
 
 
 
@@ -2002,7 +2031,10 @@ transform
 
 
 
+
 translateY
+
+
 
 
 
@@ -2071,8 +2103,12 @@ px
 
 
 
+
+
 )
 rotate
+
+
 
 
 
@@ -2141,8 +2177,12 @@ deg
 
 
 
+
+
 )
 translate
+
+
 
 
 

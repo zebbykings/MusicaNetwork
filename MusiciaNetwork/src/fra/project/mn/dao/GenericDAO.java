@@ -76,6 +76,9 @@ abstract class GenericDAO<T> implements Serializable {
  public T find(long entityID) {
   return em.find(entityClass, entityID);
  }
+ public T find(Object primaryKey) {
+	 return em.find(entityClass, primaryKey);
+ }
  
  public void clear() {
 	 em.clear();

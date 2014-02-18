@@ -1,20 +1,20 @@
 package fra.project.mn.model.genericdata;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import fra.project.mn.model.genericdata.embeddable.CertificateID;
 
 @Entity
 public class Certificate {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int idcertificate;
-	private String subject;
-	private CertificateType certificateType;
-	private InstitiuteType institiute;
+	@EmbeddedId()
+	CertificateID certificateId;
 	
 	public Certificate() {
 		super();
@@ -23,39 +23,20 @@ public class Certificate {
 	public Certificate(String subject, CertificateType certificateType,
 			InstitiuteType institiute) {
 		super();
-		this.subject = subject;
-		this.certificateType = certificateType;
-		this.institiute = institiute;
+		this.certificateId = new CertificateID();
+		
+		this.certificateId.setSubject(subject);
+		this.certificateId.setCertificateType(certificateType);
+		this.certificateId.setInstitiute(institiute);
 	}
 
-	public int getIdcertificate() {
-		return idcertificate;
+	public CertificateID getCertificateId() {
+		return certificateId;
 	}
 
-	public void setIdcertificate(int idcertificate) {
-		this.idcertificate = idcertificate;
+	public void setCertificateId(CertificateID certificateId) {
+		this.certificateId = certificateId;
 	}
 
-	public String getSubject() {
-		return subject;
-	}
-
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
-
-	public CertificateType getCertificateType() {
-		return certificateType;
-	}
-
-	public void setCertificateType(CertificateType certificateType) {
-		this.certificateType = certificateType;
-	}
-	public InstitiuteType getInstitiute() {
-		return institiute;
-	}
-
-	public void setInstitiute(InstitiuteType institiute) {
-		this.institiute = institiute;
-	}
+	
 }
