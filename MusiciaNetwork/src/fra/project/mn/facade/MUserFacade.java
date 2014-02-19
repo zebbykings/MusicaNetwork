@@ -9,13 +9,16 @@ import fra.project.mn.dao.CertificateDao;
 import fra.project.mn.dao.MUserDao;
 import fra.project.mn.dao.MuserCertificateDao;
 import fra.project.mn.dao.SectorsDao;
+import fra.project.mn.dao.ServiceTitleDao;
 import fra.project.mn.model.MUser;
 import fra.project.mn.model.genericdata.Certificate;
 import fra.project.mn.model.genericdata.CertificateType;
+import fra.project.mn.model.genericdata.ContractOrCallServiceTitle;
 import fra.project.mn.model.genericdata.InstitiuteType;
 import fra.project.mn.model.genericdata.MuserCertificate;
 import fra.project.mn.model.genericdata.Sector;
 import fra.project.mn.model.genericdata.SectoreRule;
+import fra.project.mn.model.genericdata.ServiceTitle;
 import fra.project.mn.model.genericdata.embeddable.CertificateID;
 
 public class MUserFacade implements Serializable {
@@ -25,6 +28,7 @@ public class MUserFacade implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private MUserDao muserDao = new MUserDao();
+	private ServiceTitleDao std;
 	private SectorsDao sd;
 	private CertificateDao cd;
 	private MuserCertificateDao mcd;
@@ -52,7 +56,27 @@ public class MUserFacade implements Serializable {
 		return muser;
 	}
 
-	public void update(MUser m, String subject, String selectedType,
+	public void updateServiceTitle(MUser m, String city, String place, String acadamic_year, Sector sector, String teaching, String from_date, String to_date, boolean isPublicProcedure, String hourNumber, String publicProcedureName){
+		
+		ServiceTitle toAdd;
+		if(isPublicProcedure){
+			toAdd = new ContractOrCallServiceTitle(city, place, acadamic_year, sector, teaching, from_date, to_date, publicProcedureName, Integer.parseInt(hourNumber));
+		}else
+			toAdd = new ServiceTitle(city, place, acadamic_year, sector, teaching, from_date, to_date);
+		
+		
+		muserDao.beginTransaction();
+		getServiceTitleDao().beginTransaction();
+		getServiceTitleDao().save(toAdd);
+		getServiceTitleDao().flush();
+		m.getServiceTitles().add(toAdd);
+		getServiceTitleDao().commitAndCloseTransaction();
+		muserDao.update(m);
+		muserDao.flush();
+		muserDao.commitAndCloseTransaction();
+	}
+	
+	public void updateCertificate(MUser m, String subject, String selectedType,
 			String selectedInstitiute, String city, String year) {
 
 		Certificate c = getOrStoreCertificate(subject,
@@ -151,6 +175,12 @@ public class MUserFacade implements Serializable {
 			this.sd = new SectorsDao();
 		}
 		return sd;
+	}
+	private ServiceTitleDao getServiceTitleDao() {
+		if (this.std == null) {
+			this.std = new ServiceTitleDao();
+		}
+		return std;
 	}
 
 	private CertificateDao getCertificateDao() {

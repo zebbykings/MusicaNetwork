@@ -239,6 +239,12 @@ nav ul li a:hover {
 	margin: 20px;
 	height: 210px;
 }
+#boxcontent .profile_article_id .insertServiceTitleForm {
+	background-color: bisque;
+	padding: 20px;
+	margin: 20px;
+	height: 380px;
+}
 
 #boxcontent .profile_article_id .insertTitleHeader {
 	
@@ -247,6 +253,9 @@ nav ul li a:hover {
 #boxcontent .profile_article_id .insertTitleDiv {
 	float: left;
 	margin: 10px;
+}
+#boxcontent .profile_article_id .insertTitleDateFromTo {
+	
 }
 
 #boxcontent .profile_article_id .selectTypeHead {
