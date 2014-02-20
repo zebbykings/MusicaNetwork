@@ -229,6 +229,10 @@ nav ul li a:hover {
 	padding-top: 10px;
 }
 
+#boxcontent .profile_article_id .showTitleHeadII {
+	padding-top: 30px;
+}
+
 #boxcontent .profile_article_id .profile_detail_addTitleButton {
 	float: right;
 }
@@ -244,6 +248,12 @@ nav ul li a:hover {
 	padding: 20px;
 	margin: 20px;
 	height: 380px;
+}
+#boxcontent .profile_article_id .insertEditPublicationForm {
+	background-color: bisque;
+	padding: 20px;
+	margin: 20px;
+	height: 120px;
 }
 
 #boxcontent .profile_article_id .insertTitleHeader {

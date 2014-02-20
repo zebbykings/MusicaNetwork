@@ -15,7 +15,7 @@ import fra.project.mn.model.Advice;
 public class Requirements {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
-	public long idrequirements;
+	private long idrequirements;
 	private String requirements;
 
 	public long getIdrequirements() {

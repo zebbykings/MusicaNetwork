@@ -19,7 +19,7 @@ public class MuserCertificate {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int idcertificate;
+	private int idcertificate;
 	@ManyToOne
 	private Certificate certificate;
 	private String city;

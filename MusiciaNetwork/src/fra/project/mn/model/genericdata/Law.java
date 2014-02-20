@@ -11,7 +11,7 @@ public class Law {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	
-	public long idlaw;
+	private long idlaw;
 	private String law;
 	public long getIdlaw() {
 		return idlaw;
